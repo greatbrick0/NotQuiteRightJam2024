@@ -39,6 +39,10 @@ func _process(delta):
 				gunActionTime = gunReloadCooldown
 
 func Shoot() -> void:
-	instanceRef = bulletScene.instantiate()
-	instanceRef.global_position = %BulletPoint.global_position
-	get_parent().add_child(instanceRef)
+	for ii in 3:
+		instanceRef = bulletScene.instantiate()
+		instanceRef.global_position = %BulletPoint.global_position
+		instanceRef.startingVelocity = velocity
+		instanceRef.dir = $Visuals/ShotgunCentre.global_position.direction_to(%BulletPoint.global_position)
+		instanceRef.dir = instanceRef.dir.rotated(0.1 * (ii - 1))
+		get_parent().add_child(instanceRef)
