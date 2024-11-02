@@ -31,15 +31,16 @@ func Attacking() -> void:
 		instanceRef = scratchScene.instantiate()
 		instanceRef.global_position = %Player.global_position
 		get_parent().add_child(instanceRef)
+		%Player.TakeDamage()
 		targetDirection = -1 * global_position.direction_to(%Player.global_position)
 		ChangeState("retreating")
-	if(DistanceFromCamera() > 0.4 and stateTime > 0.1):
+	if(DistanceFromCamera() > 0.45 and stateTime > 0.1):
 		ChangeState("looking")
 
 func Retreating() -> void:
 	velocity = targetDirection * moveSpeed * 0.7
 	if(DistanceFromCamera() > 0.3 and stateTime > 0.1):
-		if(global_position.distance_to(%Player.global_position) > 200 or DistanceFromCamera() > 0.4):
+		if(global_position.distance_to(%Player.global_position) > 200 or DistanceFromCamera() > 0.45):
 			ChangeState("looking")
 
 func Looking() -> void:

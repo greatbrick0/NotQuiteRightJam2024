@@ -1,86 +1,64 @@
-[gd_scene load_steps=12 format=3 uid="uid://cepbfx2aksu04"]
+[gd_scene load_steps=15 format=3 uid="uid://cepbfx2aksu04"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1bf3d"]
 [ext_resource type="PackedScene" uid="uid://cw8eghlnxpi0u" path="res://Scenes/player_bullet.tscn" id="2_h7hr5"]
 [ext_resource type="Texture2D" uid="uid://bqfissrwjogkv" path="res://Sprites/Hunter2_NoGun.png" id="2_wcws5"]
-[ext_resource type="Texture2D" uid="uid://cx4b5oybi43x5" path="res://Sprites/HunterRifle.png" id="3_quglk"]
 [ext_resource type="AudioStream" uid="uid://oqoeb0ieb2bp" path="res://Sounds/Effects/Blast2.wav" id="5_l8sw1"]
-[ext_resource type="Texture2D" uid="uid://ct8rmd1oo3e60" path="res://Sprites/HunterRifleFlash.png" id="5_v2yj2"]
+[ext_resource type="Texture2D" uid="uid://c1geo5cr5vn17" path="res://Sprites/Rifle_1.png" id="5_sm2i7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jl8x"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(21, 0, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sed70"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(42, 0, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68s63"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(0, 0, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc7s4"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(63, 0, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akcm0"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(84, 0, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3nnm"]
+atlas = ExtResource("5_sm2i7")
+region = Rect2(105, 0, 21, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8rjqb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_quglk")
+"texture": SubResource("AtlasTexture_5jl8x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_v2yj2")
+"texture": SubResource("AtlasTexture_sed70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68s63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc7s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akcm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3nnm")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
-[sub_resource type="Animation" id="Animation_c36kf"]
-resource_name = "ShotgunBlast"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(17, 1), Vector2(5, 1), Vector2(6, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_btg8g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_onplt"]
-_data = {
-"RESET": SubResource("Animation_btg8g"),
-"ShotgunBlast": SubResource("Animation_c36kf")
-}
+[sub_resource type="Gradient" id="Gradient_fuqeb"]
+offsets = PackedFloat32Array(0, 0.873333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yuvrq"]
 radius = 5.0
@@ -101,23 +79,12 @@ offset = Vector2(0, -11)
 [node name="ShotgunCentre" type="Node2D" parent="Visuals"]
 position = Vector2(0, -30)
 
-[node name="Shotgun" type="Sprite2D" parent="Visuals/ShotgunCentre"]
-visible = false
-position = Vector2(18, 3)
-scale = Vector2(3, 3)
-texture = ExtResource("3_quglk")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals/ShotgunCentre"]
+[node name="Shotgun" type="AnimatedSprite2D" parent="Visuals/ShotgunCentre"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8rjqb")
-offset = Vector2(6, 1)
+offset = Vector2(9.5, 2)
 
-[node name="Anim" type="AnimationPlayer" parent="Visuals/ShotgunCentre/AnimatedSprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_onplt")
-}
-
-[node name="BulletPoint" type="Node2D" parent="Visuals/ShotgunCentre/AnimatedSprite2D"]
+[node name="BulletPoint" type="Node2D" parent="Visuals/ShotgunCentre/Shotgun"]
 unique_name_in_owner = true
 position = Vector2(12, 1)
 
@@ -125,6 +92,27 @@ position = Vector2(12, 1)
 
 [node name="GunBlastSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_l8sw1")
+
+[node name="Particles" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="DamageParticles" type="CPUParticles2D" parent="Particles"]
+position = Vector2(0, -40)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 160.0
+initial_velocity_max = 200.0
+linear_accel_min = -320.0
+linear_accel_max = -320.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+color = Color(1, 0.901961, 0.631373, 1)
+color_ramp = SubResource("Gradient_fuqeb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

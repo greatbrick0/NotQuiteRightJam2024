@@ -87,7 +87,7 @@ scratchScene = ExtResource("2_x8wfp")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_macex")
 autoplay = "default"
-frame_progress = 0.899012
+frame_progress = 0.61292
 offset = Vector2(1, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

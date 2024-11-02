@@ -31,7 +31,7 @@ func _process(delta):
 		if(Input.is_action_pressed("Shoot")):
 			if(currentAmmo > 0):
 				Shoot()
-				$Visuals/ShotgunCentre/AnimatedSprite2D/Anim.play("ShotgunBlast")
+				$Visuals/ShotgunCentre/Shotgun.play()
 				$Sounds/GunBlastSound.play()
 				currentAmmo -= 1
 				gunActionTime = gunActionCooldown
@@ -48,3 +48,6 @@ func Shoot() -> void:
 		instanceRef.dir = instanceRef.dir.rotated(randf_range(-0.2, 0.2))
 		instanceRef.speed *= randf_range(0.95, 1)
 		get_parent().add_child(instanceRef)
+
+func TakeDamage() -> void:
+	$Particles/DamageParticles.emitting = true

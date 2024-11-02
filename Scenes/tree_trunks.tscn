@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70i2c62qi7g1"]
+
+[ext_resource type="Texture2D" uid="uid://dya5sbavb3mia" path="res://Sprites/Rock2.png" id="1_v0phq"]
+[ext_resource type="Texture2D" uid="uid://br6c1tnsqmv12" path="res://Sprites/Rock1.png" id="2_5jg68"]
+[ext_resource type="Texture2D" uid="uid://bo260d27d0161" path="res://Sprites/Trunk2.png" id="3_tkxlp"]
+[ext_resource type="Texture2D" uid="uid://o7ry0f7fg23l" path="res://Sprites/Trunk1.png" id="4_0shv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4m1y"]
+size = Vector2(1000, 110)
+
+[node name="TreeTrunks" type="Node2D"]
+
+[node name="Rock6" type="Sprite2D" parent="."]
+position = Vector2(-414, -2.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_v0phq")
+flip_h = true
+
+[node name="Rock5" type="Sprite2D" parent="."]
+position = Vector2(349, -10.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_v0phq")
+
+[node name="Rock1" type="Sprite2D" parent="."]
+position = Vector2(-211, 5.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_5jg68")
+
+[node name="Rock2" type="Sprite2D" parent="."]
+position = Vector2(102, -12.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_5jg68")
+flip_h = true
+
+[node name="Trunk5" type="Sprite2D" parent="."]
+position = Vector2(-92, -11.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tkxlp")
+
+[node name="Trunk1" type="Sprite2D" parent="."]
+position = Vector2(52, -5.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0shv7")
+
+[node name="Trunk9" type="Sprite2D" parent="."]
+position = Vector2(-26, -24.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0shv7")
+
+[node name="Trunk7" type="Sprite2D" parent="."]
+position = Vector2(-353, -0.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tkxlp")
+
+[node name="Trunk6" type="Sprite2D" parent="."]
+position = Vector2(-284, 7.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0shv7")
+
+[node name="Trunk2" type="Sprite2D" parent="."]
+position = Vector2(-147, 0.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0shv7")
+flip_h = true
+
+[node name="Trunk3" type="Sprite2D" parent="."]
+position = Vector2(283, -6.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0shv7")
+
+[node name="Trunk4" type="Sprite2D" parent="."]
+position = Vector2(161, -15.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tkxlp")
+
+[node name="Trunk8" type="Sprite2D" parent="."]
+position = Vector2(203, -5.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tkxlp")
+
+[node name="Rock3" type="Sprite2D" parent="."]
+position = Vector2(-43, 21.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_v0phq")
+flip_h = true
+
+[node name="Rock4" type="Sprite2D" parent="."]
+position = Vector2(405, 3.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_v0phq")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_j4m1y")
