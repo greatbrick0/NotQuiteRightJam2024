@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqfissrwjogkv"
-path="res://.godot/imported/Hunter2_NoGun.png-a5f7628ae76711d306dbb41f127deb5d.ctex"
+uid="uid://cqlrablvaj3u6"
+path="res://.godot/imported/PlayerHurt2_Anim1.png-19a4b52b503f4344c3ca8bf012f96a73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Hunter2_NoGun.png"
-dest_files=["res://.godot/imported/Hunter2_NoGun.png-a5f7628ae76711d306dbb41f127deb5d.ctex"]
+source_file="res://Sprites/Player/PlayerHurt2_Anim1.png"
+dest_files=["res://.godot/imported/PlayerHurt2_Anim1.png-19a4b52b503f4344c3ca8bf012f96a73.ctex"]
 
 [params]
 

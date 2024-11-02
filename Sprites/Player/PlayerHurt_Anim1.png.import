@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct8rmd1oo3e60"
-path="res://.godot/imported/HunterRifleFlash.png-3968373c08cb0ce366ef1b0117d773f3.ctex"
+uid="uid://bdor04n2kypat"
+path="res://.godot/imported/PlayerHurt_Anim1.png-df372b4f0a555d66f9ce4297a5fe2bd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/HunterRifleFlash.png"
-dest_files=["res://.godot/imported/HunterRifleFlash.png-3968373c08cb0ce366ef1b0117d773f3.ctex"]
+source_file="res://Sprites/Player/PlayerHurt_Anim1.png"
+dest_files=["res://.godot/imported/PlayerHurt_Anim1.png-df372b4f0a555d66f9ce4297a5fe2bd6.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var baseMoveSpeed: float = 170
+@export var currentHealth: int = 3
 @export var currentAmmo: int = 2
 @export var gunActionCooldown: float = 0.4
 @export var gunReloadCooldown: float = 1.4
@@ -8,6 +9,7 @@ var gunActionTime: float = 0
 
 var instanceRef: Node
 @export var bulletScene: PackedScene
+@export var healthStages: Array[SpriteFrames]
 
 var inputMoveDir: Vector2
 
@@ -23,6 +25,10 @@ func _process(delta):
 	$Visuals/ShotgunCentre.look_at(get_global_mouse_position())
 	
 	velocity = (inputMoveDir).normalized() * baseMoveSpeed
+	if(velocity.distance_squared_to(Vector2.ZERO) != 0):
+		$Visuals/Hunter.play("walk")
+	else:
+		$Visuals/Hunter.play("idle")
 	move_and_slide()
 	
 	if(gunActionTime > 0):
@@ -51,3 +57,5 @@ func Shoot() -> void:
 
 func TakeDamage() -> void:
 	$Particles/DamageParticles.emitting = true
+	currentHealth -= 1
+	$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cepbfx2aksu04"]
+[gd_scene load_steps=18 format=3 uid="uid://cepbfx2aksu04"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1bf3d"]
 [ext_resource type="PackedScene" uid="uid://cw8eghlnxpi0u" path="res://Scenes/player_bullet.tscn" id="2_h7hr5"]
-[ext_resource type="Texture2D" uid="uid://bqfissrwjogkv" path="res://Sprites/Hunter2_NoGun.png" id="2_wcws5"]
+[ext_resource type="Texture2D" uid="uid://bqfissrwjogkv" path="res://Sprites/Player/Hunter2_NoGun.png" id="2_wcws5"]
+[ext_resource type="SpriteFrames" uid="uid://d2ba30ifmhf6o" path="res://Sprites/Player/PlayerHurt2.tres" id="3_3bhe8"]
+[ext_resource type="SpriteFrames" uid="uid://b38ltq7ekgk3y" path="res://Sprites/Player/PlayerHurt0.tres" id="4_3n4kr"]
+[ext_resource type="SpriteFrames" uid="uid://cipfcqjuyut2u" path="res://Sprites/Player/PlayerHurt1.tres" id="4_qftt8"]
 [ext_resource type="AudioStream" uid="uid://oqoeb0ieb2bp" path="res://Sounds/Effects/Blast2.wav" id="5_l8sw1"]
-[ext_resource type="Texture2D" uid="uid://c1geo5cr5vn17" path="res://Sprites/Rifle_1.png" id="5_sm2i7"]
+[ext_resource type="Texture2D" uid="uid://c1geo5cr5vn17" path="res://Sprites/Player/Rifle_1.png" id="5_sm2i7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jl8x"]
 atlas = ExtResource("5_sm2i7")
@@ -67,13 +70,23 @@ height = 48.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1bf3d")
 bulletScene = ExtResource("2_h7hr5")
+healthStages = Array[SpriteFrames]([ExtResource("3_3bhe8"), ExtResource("4_qftt8"), ExtResource("4_3n4kr")])
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Hunter1" type="Sprite2D" parent="Visuals"]
+visible = false
 position = Vector2(3, -1.5)
 scale = Vector2(3, 3)
 texture = ExtResource("2_wcws5")
+offset = Vector2(0, -11)
+
+[node name="Hunter" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(0, 1.5)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("4_3n4kr")
+animation = &"idle"
+frame_progress = 0.432282
 offset = Vector2(0, -11)
 
 [node name="ShotgunCentre" type="Node2D" parent="Visuals"]

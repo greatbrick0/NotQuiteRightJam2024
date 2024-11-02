@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health: int = 30
+@export var health: int = 48
 @export var moveSpeed: float = 150
 var targetDirection: Vector2
 var behaviourState: String = "looking"
