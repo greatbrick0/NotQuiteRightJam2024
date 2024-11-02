@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6b4vtattx1js"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_scratch.gd" id="1_t3ojq"]
+[ext_resource type="Texture2D" uid="uid://b7h5vsj7qgjib" path="res://Sprites/ClawSlash1.png" id="2_cr4pv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tevox"]
+atlas = ExtResource("2_cr4pv")
+region = Rect2(0, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3y3"]
+atlas = ExtResource("2_cr4pv")
+region = Rect2(18, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwsai"]
+atlas = ExtResource("2_cr4pv")
+region = Rect2(36, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr40m"]
+atlas = ExtResource("2_cr4pv")
+region = Rect2(54, 0, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxuax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tevox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwsai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwsai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr40m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="EnemyScratch" type="Node2D"]
+script = ExtResource("1_t3ojq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hxuax")
+autoplay = "default"
+frame_progress = 0.321982
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
