@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=6 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
-[ext_resource type="PackedScene" uid="uid://bped41wsrdqkv" path="res://Scenes/rock.tscn" id="2_wxume"]
+[ext_resource type="PackedScene" uid="uid://bped41wsrdqkv" path="res://Scenes/rock1.tscn" id="2_wxume"]
+[ext_resource type="PackedScene" uid="uid://dms3c6cjr17y7" path="res://Scenes/rock2.tscn" id="3_c8cvl"]
+[ext_resource type="PackedScene" uid="uid://m5aefrjlbv0g" path="res://Scenes/rock3.tscn" id="5_a3exe"]
+[ext_resource type="PackedScene" uid="uid://18pkhdbybjlq" path="res://Scenes/tree_tops.tscn" id="5_rebjw"]
 
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ControlledCamera" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_2ybcu")]
 unique_name_in_owner = true
@@ -19,3 +22,11 @@ position = Vector2(-151, 152)
 
 [node name="Rock3" parent="." instance=ExtResource("2_wxume")]
 position = Vector2(-221, -187)
+
+[node name="Rock4" parent="." instance=ExtResource("3_c8cvl")]
+position = Vector2(137, 140)
+
+[node name="Rock5" parent="." instance=ExtResource("5_a3exe")]
+position = Vector2(150, -73)
+
+[node name="TreeTops" parent="." instance=ExtResource("5_rebjw")]

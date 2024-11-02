@@ -13,4 +13,4 @@ offset = Vector2(0, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -24)
-polygon = PackedVector2Array(-22, 12, -55, 22, -14, 31, -2, 41, 35, 37, 57, 26, 11, 8, -3, -5)
+polygon = PackedVector2Array(-22, 12, -55, 22, -17, 30, -5, 42, 35, 37, 57, 26, 11, 8, -3, -5)

@@ -31,6 +31,10 @@ expand_margin_left = 4.0
 expand_margin_right = 4.0
 
 [resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_owm5e")
 Button/styles/hover = SubResource("StyleBoxFlat_qxjye")
 Button/styles/normal = SubResource("StyleBoxFlat_e7x0c")

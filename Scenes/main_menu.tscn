@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfjfbex5rsbv5"]
+[gd_scene load_steps=3 format=3 uid="uid://dfjfbex5rsbv5"]
 
 [ext_resource type="Theme" uid="uid://b32hstdndaid8" path="res://MenuTheme.tres" id="1_a38j3"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_w7oqr"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_w7oqr")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(912, 666)
@@ -13,7 +15,7 @@ offset_bottom = 666.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control"]
+[node name="StartButton" type="Button" parent="Control"]
 custom_minimum_size = Vector2(180, 70)
 layout_mode = 1
 anchors_preset = 8
@@ -30,3 +32,5 @@ grow_vertical = 2
 theme = ExtResource("1_a38j3")
 theme_override_font_sizes/font_size = 24
 text = "Start"
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]

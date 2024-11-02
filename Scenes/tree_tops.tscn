@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://18pkhdbybjlq"]
+
+[ext_resource type="Texture2D" uid="uid://cvlnu1e2x1av1" path="res://Sprites/BushOrTreesTransparent.png" id="1_xk1nl"]
+[ext_resource type="Texture2D" uid="uid://bvj3ta8lxo4ss" path="res://Sprites/Bush2.png" id="2_kxuc2"]
+
+[node name="TreeTops" type="Node2D"]
+
+[node name="BushOrTrees" type="Sprite2D" parent="."]
+position = Vector2(-11, 318.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="BushOrTrees2" type="Sprite2D" parent="."]
+position = Vector2(195, 324)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="BushOrTrees3" type="Sprite2D" parent="."]
+position = Vector2(-76, 313.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="BushOrTrees4" type="Sprite2D" parent="."]
+position = Vector2(-252, 321.5)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="BushOrTrees5" type="Sprite2D" parent="."]
+position = Vector2(275, 323)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="BushOrTrees6" type="Sprite2D" parent="."]
+position = Vector2(-443, 306)
+scale = Vector2(3, 3)
+texture = ExtResource("1_xk1nl")
+
+[node name="Bush2" type="Sprite2D" parent="."]
+position = Vector2(-357, 330.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_kxuc2")
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(92, 343)
+scale = Vector2(3, 3)
+texture = ExtResource("2_kxuc2")
+
+[node name="Bush4" type="Sprite2D" parent="."]
+position = Vector2(-174, 302.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_kxuc2")
+
+[node name="Bush5" type="Sprite2D" parent="."]
+position = Vector2(383, 308)
+scale = Vector2(3, 3)
+texture = ExtResource("2_kxuc2")
