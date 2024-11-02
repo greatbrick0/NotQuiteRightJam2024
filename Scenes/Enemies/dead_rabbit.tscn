@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://dd1j0qo3gh646"]
+
+[ext_resource type="Texture2D" uid="uid://dyxf8hjpqnxob" path="res://Sprites/RabbitAnim_1.png" id="1_a12il"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd8qi"]
+atlas = ExtResource("1_a12il")
+region = Rect2(168, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07f4h"]
+atlas = ExtResource("1_a12il")
+region = Rect2(189, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ie1x"]
+atlas = ExtResource("1_a12il")
+region = Rect2(210, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fvc0"]
+atlas = ExtResource("1_a12il")
+region = Rect2(231, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k814t"]
+atlas = ExtResource("1_a12il")
+region = Rect2(252, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fhns"]
+atlas = ExtResource("1_a12il")
+region = Rect2(273, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqrgh"]
+atlas = ExtResource("1_a12il")
+region = Rect2(294, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnndo"]
+atlas = ExtResource("1_a12il")
+region = Rect2(315, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmj1c"]
+atlas = ExtResource("1_a12il")
+region = Rect2(336, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uppwk"]
+atlas = ExtResource("1_a12il")
+region = Rect2(357, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q4dp"]
+atlas = ExtResource("1_a12il")
+region = Rect2(378, 0, 21, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eve2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd8qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07f4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ie1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fvc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k814t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fhns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqrgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnndo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmj1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uppwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q4dp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DeadOwl" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_eve2t")
+autoplay = "default"
+offset = Vector2(1, -6)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(3, 3)
+rect = Rect2(-15, -25, 30, 30)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]

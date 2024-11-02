@@ -1,49 +1,49 @@
 [gd_scene load_steps=14 format=3 uid="uid://bkos0aes5a4l1"]
 
-[ext_resource type="Texture2D" uid="uid://cpldpcybjg5u" path="res://Sprites/OwlAnim_1.png" id="1_4rild"]
+[ext_resource type="Texture2D" uid="uid://cpldpcybjg5u" path="res://Sprites/OwlAnim_1.png" id="1_8u538"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v624t"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(184, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyvm4"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(207, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4rf7"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(230, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5adi"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(253, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uebir"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(276, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frljr"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(299, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntkyi"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(322, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8im7r"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(345, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvhu4"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(368, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpm7k"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(391, 0, 23, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og8we"]
-atlas = ExtResource("1_4rild")
+atlas = ExtResource("1_8u538")
 region = Rect2(414, 0, 23, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sine6"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://sprmn3fse7g2"]
+
+[ext_resource type="Script" path="res://Scripts/rabbit.gd" id="1_55t4e"]
+[ext_resource type="Texture2D" uid="uid://dyxf8hjpqnxob" path="res://Sprites/RabbitAnim_1.png" id="1_sxq40"]
+[ext_resource type="PackedScene" uid="uid://c6b4vtattx1js" path="res://Scenes/Enemies/enemy_scratch.tscn" id="2_uj05r"]
+[ext_resource type="PackedScene" uid="uid://dd1j0qo3gh646" path="res://Scenes/Enemies/dead_rabbit.tscn" id="3_evwmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh7gt"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(147, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr425"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(63, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6gr2"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(84, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsc30"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(105, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h278r"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(126, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noxil"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(42, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u5l4"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(21, 0, 21, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_modmg"]
+atlas = ExtResource("1_sxq40")
+region = Rect2(0, 0, 21, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lmsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh7gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr425")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6gr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsc30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsc30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h278r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noxil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u5l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_modmg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5m10d"]
+radius = 6.0
+height = 54.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wc1um"]
+radius = 20.0
+height = 58.0
+
+[node name="Rabbit" type="CharacterBody2D"]
+script = ExtResource("1_55t4e")
+scratchScene = ExtResource("2_uj05r")
+deathScene = ExtResource("3_evwmr")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(0, -1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_4lmsd")
+offset = Vector2(1, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5m10d")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -19)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wc1um")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

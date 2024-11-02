@@ -1,22 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6b4vtattx1js"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_scratch.gd" id="1_t3ojq"]
-[ext_resource type="Texture2D" uid="uid://b7h5vsj7qgjib" path="res://Sprites/ClawSlash1.png" id="2_cr4pv"]
+[ext_resource type="Script" path="res://Scripts/enemy_scratch.gd" id="1_cdlnj"]
+[ext_resource type="Texture2D" uid="uid://b7h5vsj7qgjib" path="res://Sprites/ClawSlash1.png" id="2_vpr6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tevox"]
-atlas = ExtResource("2_cr4pv")
+atlas = ExtResource("2_vpr6q")
 region = Rect2(0, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc3y3"]
-atlas = ExtResource("2_cr4pv")
+atlas = ExtResource("2_vpr6q")
 region = Rect2(18, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rwsai"]
-atlas = ExtResource("2_cr4pv")
+atlas = ExtResource("2_vpr6q")
 region = Rect2(36, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wr40m"]
-atlas = ExtResource("2_cr4pv")
+atlas = ExtResource("2_vpr6q")
 region = Rect2(54, 0, 18, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hxuax"]
@@ -47,9 +47,11 @@ animations = [{
 
 [node name="EnemyScratch" type="Node2D"]
 z_index = 1
-script = ExtResource("1_t3ojq")
+script = ExtResource("1_cdlnj")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals"]
 modulate = Color(0.133333, 0.12549, 0.203922, 1)
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
@@ -57,7 +59,7 @@ sprite_frames = SubResource("SpriteFrames_hxuax")
 autoplay = "default"
 frame_progress = 0.321982
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 modulate = Color(0.772549, 0.411765, 0.505882, 1)
 position = Vector2(0, -30)
 scale = Vector2(3, 3)
@@ -65,4 +67,4 @@ sprite_frames = SubResource("SpriteFrames_hxuax")
 autoplay = "default"
 frame_progress = 0.321982
 
-[connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Visuals/AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_animation_finished"]
