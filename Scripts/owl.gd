@@ -8,6 +8,7 @@ var stateTime: float = 0.0
 
 var instanceRef: Node
 @export var scratchScene: PackedScene
+@export var deathScene: PackedScene
 
 func ChangeState(newState: String):
 	stateTime = 0.0
@@ -63,4 +64,8 @@ func DistanceFromCamera() -> float:
 func _on_hitbox_area_entered(area):
 	health -= 1
 	if(health <= 0):
+		instanceRef = deathScene.instantiate()
+		instanceRef.global_position = global_position
+		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
+		get_parent().add_child(instanceRef)
 		queue_free()

@@ -89,7 +89,7 @@ deathScene = ExtResource("3_kjfl3")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_macex")
 autoplay = "default"
-frame_progress = 0.461876
+frame_progress = 0.270526
 offset = Vector2(1, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
