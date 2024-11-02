@@ -40,15 +40,17 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wr40m")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [node name="EnemyScratch" type="Node2D"]
+z_index = 1
 script = ExtResource("1_t3ojq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -30)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_hxuax")
 autoplay = "default"

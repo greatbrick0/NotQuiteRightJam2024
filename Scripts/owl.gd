@@ -6,8 +6,8 @@ var targetDirection: Vector2
 var behaviourState: String = "looking"
 var stateTime: float = 0.0
 
-func DecideDirection() -> void:
-	targetDirection = global_position.direction_to(%Player.global_position)
+var instanceRef: Node
+@export var scratchScene: PackedScene
 
 func ChangeState(newState: String):
 	stateTime = 0.0
@@ -17,16 +17,40 @@ func _process(delta):
 	stateTime += 1.0 * delta
 	
 	if(behaviourState == "attacking"):
-		velocity = targetDirection * moveSpeed
-		if(DistanceFromCamera() > 0.4 and stateTime > 0.1):
-			ChangeState("looking")
-	if(behaviourState == "looking"):
-		velocity = Vector2.ZERO
-		if(stateTime > 1.5):
-			DecideDirection()
-			ChangeState("attacking")
+		Attacking()
+	elif(behaviourState == "retreating"):
+		Retreating()
+	elif(behaviourState == "looking"):
+		Looking()
 	
 	move_and_slide()
+
+func Attacking() -> void:
+	velocity = targetDirection * moveSpeed
+	if(global_position.distance_to(%Player.global_position) < 30):
+		instanceRef = scratchScene.instantiate()
+		instanceRef.global_position = %Player.global_position
+		get_parent().add_child(instanceRef)
+		targetDirection = -1 * global_position.direction_to(%Player.global_position)
+		ChangeState("retreating")
+	if(DistanceFromCamera() > 0.4 and stateTime > 0.1):
+		ChangeState("looking")
+
+func Retreating() -> void:
+	velocity = targetDirection * moveSpeed * 0.7
+	if(DistanceFromCamera() > 0.3 and stateTime > 0.1):
+		if(global_position.distance_to(%Player.global_position) > 200 or DistanceFromCamera() > 0.4):
+			ChangeState("looking")
+
+func Looking() -> void:
+	velocity = Vector2.ZERO
+	if(%Player.global_position > global_position):
+		$Visuals.scale.x = -1
+	elif(%Player.global_position < global_position):
+		$Visuals.scale.x = 1
+	if(stateTime > 1.5):
+		targetDirection = global_position.direction_to(%Player.global_position)
+		ChangeState("attacking")
 
 func DistanceFromCamera() -> float:
 	var output: float

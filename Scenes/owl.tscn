@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjqhcgdasveln"]
+[gd_scene load_steps=15 format=3 uid="uid://bjqhcgdasveln"]
 
 [ext_resource type="Script" path="res://Scripts/owl.gd" id="1_i6l8b"]
 [ext_resource type="Texture2D" uid="uid://cpldpcybjg5u" path="res://Sprites/OwlAnim_1.png" id="1_t4dhw"]
+[ext_resource type="PackedScene" uid="uid://c6b4vtattx1js" path="res://Scenes/enemy_scratch.tscn" id="2_x8wfp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2dkj"]
 atlas = ExtResource("1_t4dhw")
@@ -78,6 +79,7 @@ radius = 22.0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_i6l8b")
+scratchScene = ExtResource("2_x8wfp")
 
 [node name="Visuals" type="Node2D" parent="."]
 
@@ -85,7 +87,7 @@ script = ExtResource("1_i6l8b")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_macex")
 autoplay = "default"
-frame_progress = 0.698807
+frame_progress = 0.899012
 offset = Vector2(1, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
