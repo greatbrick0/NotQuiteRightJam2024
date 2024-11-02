@@ -1,20 +1,103 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjqhcgdasveln"]
+[gd_scene load_steps=14 format=3 uid="uid://bjqhcgdasveln"]
 
-[ext_resource type="Texture2D" uid="uid://bmcws6w0qpfp0" path="res://Sprites/Owl1.png" id="1_aicpt"]
+[ext_resource type="Script" path="res://Scripts/owl.gd" id="1_i6l8b"]
+[ext_resource type="Texture2D" uid="uid://cpldpcybjg5u" path="res://Sprites/OwlAnim_1.png" id="1_t4dhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2dkj"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(0, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x8tn"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(23, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37myq"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(46, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s8k1"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(69, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce5e7"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(92, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejkt7"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(115, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgpsw"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(138, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6p3f"]
+atlas = ExtResource("1_t4dhw")
+region = Rect2(161, 0, 23, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_macex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2dkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x8tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37myq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s8k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce5e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejkt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgpsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6p3f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5m10d"]
-radius = 20.0
-height = 54.0
+radius = 3.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx15k"]
+radius = 22.0
 
 [node name="Owl" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_i6l8b")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Owl1" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, -1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 scale = Vector2(3, 3)
-texture = ExtResource("1_aicpt")
+sprite_frames = SubResource("SpriteFrames_macex")
+autoplay = "default"
+frame_progress = 0.698807
+offset = Vector2(1, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5m10d")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -36)
+shape = SubResource("CircleShape2D_lx15k")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

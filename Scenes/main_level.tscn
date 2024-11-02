@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=7 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="PackedScene" uid="uid://bped41wsrdqkv" path="res://Scenes/rock1.tscn" id="2_wxume"]
 [ext_resource type="PackedScene" uid="uid://dms3c6cjr17y7" path="res://Scenes/rock2.tscn" id="3_c8cvl"]
 [ext_resource type="PackedScene" uid="uid://m5aefrjlbv0g" path="res://Scenes/rock3.tscn" id="5_a3exe"]
 [ext_resource type="PackedScene" uid="uid://18pkhdbybjlq" path="res://Scenes/tree_tops.tscn" id="5_rebjw"]
+[ext_resource type="PackedScene" uid="uid://bjqhcgdasveln" path="res://Scenes/owl.tscn" id="6_kpur8"]
 
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
@@ -30,3 +31,7 @@ position = Vector2(137, 140)
 position = Vector2(150, -73)
 
 [node name="TreeTops" parent="." instance=ExtResource("5_rebjw")]
+position = Vector2(0, 333)
+
+[node name="Owl" parent="." instance=ExtResource("6_kpur8")]
+position = Vector2(258, -92)

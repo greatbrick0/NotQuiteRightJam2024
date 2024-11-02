@@ -1,26 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw8eghlnxpi0u"]
+[gd_scene load_steps=3 format=3 uid="uid://cw8eghlnxpi0u"]
 
 [ext_resource type="Script" path="res://Scripts/player_bullet.gd" id="1_mf4ay"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns6me"]
+size = Vector2(6, 6)
+
 [node name="PlayerBullet" type="Node2D"]
+z_index = 1
 script = ExtResource("1_mf4ay")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-1, -1)
 color = Color(1, 0.901961, 0.631373, 1)
-polygon = PackedVector2Array(-3, -3, 0, -3, 0, 0, -3, 0)
+polygon = PackedVector2Array(-3, -3, 3, -3, 3, 3, -3, 3)
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2(4, -1)
-color = Color(1, 0.901961, 0.631373, 1)
-polygon = PackedVector2Array(-3, -3, 0, -3, 0, 0, -3, 0)
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 64
 
-[node name="Polygon2D3" type="Polygon2D" parent="."]
-position = Vector2(4, 4)
-color = Color(1, 0.901961, 0.631373, 1)
-polygon = PackedVector2Array(-3, -3, 0, -3, 0, 0, -3, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_ns6me")
 
-[node name="Polygon2D4" type="Polygon2D" parent="."]
-position = Vector2(-1, 4)
-color = Color(1, 0.901961, 0.631373, 1)
-polygon = PackedVector2Array(-3, -3, 0, -3, 0, 0, -3, 0)
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

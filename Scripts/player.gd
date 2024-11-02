@@ -31,6 +31,7 @@ func _process(delta):
 		if(Input.is_action_pressed("Shoot")):
 			if(currentAmmo > 0):
 				Shoot()
+				$Visuals/ShotgunCentre/AnimatedSprite2D/Anim.play("ShotgunBlast")
 				$Sounds/GunBlastSound.play()
 				currentAmmo -= 1
 				gunActionTime = gunActionCooldown
@@ -39,10 +40,11 @@ func _process(delta):
 				gunActionTime = gunReloadCooldown
 
 func Shoot() -> void:
-	for ii in 3:
+	for ii in 12:
 		instanceRef = bulletScene.instantiate()
 		instanceRef.global_position = %BulletPoint.global_position
 		instanceRef.startingVelocity = velocity
 		instanceRef.dir = $Visuals/ShotgunCentre.global_position.direction_to(%BulletPoint.global_position)
-		instanceRef.dir = instanceRef.dir.rotated(0.1 * (ii - 1))
+		instanceRef.dir = instanceRef.dir.rotated(randf_range(-0.2, 0.2))
+		instanceRef.speed *= randf_range(0.95, 1)
 		get_parent().add_child(instanceRef)
