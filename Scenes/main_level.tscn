@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
-[ext_resource type="PackedScene" uid="uid://bped41wsrdqkv" path="res://Sprites/rock.tscn" id="2_wxume"]
+[ext_resource type="PackedScene" uid="uid://bped41wsrdqkv" path="res://Scenes/rock.tscn" id="2_wxume"]
 
 [node name="MainLevel" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -11,4 +12,10 @@
 unique_name_in_owner = true
 
 [node name="Rock" parent="." instance=ExtResource("2_wxume")]
-position = Vector2(325, 116)
+position = Vector2(325, 20)
+
+[node name="Rock2" parent="." instance=ExtResource("2_wxume")]
+position = Vector2(-151, 152)
+
+[node name="Rock3" parent="." instance=ExtResource("2_wxume")]
+position = Vector2(-221, -187)
