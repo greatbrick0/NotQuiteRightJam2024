@@ -675,6 +675,9 @@ scale = Vector2(-1, 1)
 [node name="Rock" parent="Level5" instance=ExtResource("2_wxume")]
 position = Vector2(-314, 50)
 
+[node name="Rock2" parent="Level5" instance=ExtResource("2_wxume")]
+position = Vector2(-583, -103)
+
 [node name="Grass1" type="Sprite2D" parent="Level5"]
 position = Vector2(-242.5, -106)
 scale = Vector2(3, 3)
