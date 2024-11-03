@@ -7,7 +7,8 @@ class_name Player
 @export var gunActionCooldown: float = 0.4
 @export var gunReloadCooldown: float = 1.4
 var gunActionTime: float = 0
-var lockedControls: bool = false
+@export var lockedControls: bool = false
+@export var forceWalkAnim: bool = false
 
 var instanceRef: Node
 @export var bulletScene: PackedScene
@@ -16,19 +17,19 @@ var instanceRef: Node
 var inputMoveDir: Vector2
 
 func _process(delta):
+	var mousPos: Vector2 = get_global_mouse_position()
 	if(!lockedControls):
 		inputMoveDir.y = Input.get_axis("MoveUp", "MoveDown")
 		inputMoveDir.x = Input.get_axis("MoveLeft", "MoveRight")
-	
-	var mousPos: Vector2 = get_global_mouse_position()
-	if(mousPos.x > global_position.x):
-		$Visuals.scale.x = 1
-	elif(mousPos.x < global_position.x):
-		$Visuals.scale.x = -1
-	$Visuals/ShotgunCentre.look_at(get_global_mouse_position())
+		
+		if(mousPos.x > global_position.x):
+			$Visuals.scale.x = 1
+		elif(mousPos.x < global_position.x):
+			$Visuals.scale.x = -1
+		$Visuals/ShotgunCentre.look_at(get_global_mouse_position())
 	
 	velocity = (inputMoveDir).normalized() * baseMoveSpeed
-	if(velocity.distance_squared_to(Vector2.ZERO) != 0):
+	if(velocity.distance_squared_to(Vector2.ZERO) != 0 or forceWalkAnim):
 		$Visuals/Hunter.play("walk")
 	else:
 		$Visuals/Hunter.play("idle")

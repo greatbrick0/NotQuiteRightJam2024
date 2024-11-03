@@ -11,6 +11,7 @@ var enemySpawnCounter: int = 0
 
 func _ready():
 	QueueEnemies()
+	$ControlledCamera.ChangeBehaviour(waves[currentWave].cameraBehaviour, get_node(waves[currentWave].waveNode))
 
 func QueueEnemies() -> void:
 	spawningEnemies = true
