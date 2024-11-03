@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=20 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -12,8 +12,10 @@
 [ext_resource type="Resource" uid="uid://d3nnhul720tm1" path="res://Waves/Wave2.tres" id="6_0rrt2"]
 [ext_resource type="PackedScene" uid="uid://bjqhcgdasveln" path="res://Scenes/Enemies/owl.tscn" id="6_kpur8"]
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
+[ext_resource type="Resource" uid="uid://bcwahkx3wkv06" path="res://Waves/Wave3.tres" id="7_ga7ec"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
 [ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
+[ext_resource type="PackedScene" uid="uid://cpyb40eha4tk6" path="res://Scenes/Environment/river.tscn" id="15_ttd8l"]
 
 [sub_resource type="Animation" id="Animation_cck44"]
 resource_name = "Intro"
@@ -129,7 +131,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_jh8xa")
 enemyRefs = Array[PackedScene]([ExtResource("8_7vtm3"), ExtResource("6_kpur8")])
-waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2")])
+waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2"), ExtResource("7_ga7ec")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -204,20 +206,27 @@ position = Vector2(0, -333)
 y_sort_enabled = true
 position = Vector2(927, 0)
 
-[node name="SpawnPos1" type="Node2D" parent="Level2"]
-position = Vector2(515, -125)
-
-[node name="SpawnPos2" type="Node2D" parent="Level2"]
-position = Vector2(515, 143)
-
-[node name="SpawnPos3" type="Node2D" parent="Level2"]
-position = Vector2(-514, -121)
-
-[node name="SpawnPos4" type="Node2D" parent="Level2"]
-position = Vector2(-514, 147)
-
 [node name="TreeTops" parent="Level2" instance=ExtResource("5_rebjw")]
 position = Vector2(0, 333)
 
 [node name="TreeTrunks" parent="Level2" instance=ExtResource("7_egsi8")]
 position = Vector2(0, -333)
+
+[node name="Level3" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1500, 0)
+
+[node name="TreeTops" parent="Level3" instance=ExtResource("5_rebjw")]
+position = Vector2(350, 333)
+
+[node name="TreeTrunks" parent="Level3" instance=ExtResource("7_egsi8")]
+position = Vector2(550, -333)
+
+[node name="SpawnPos1" type="Node2D" parent="Level3"]
+position = Vector2(520, -200)
+
+[node name="SpawnPos2" type="Node2D" parent="Level3"]
+position = Vector2(-520, 200)
+
+[node name="River" parent="." instance=ExtResource("15_ttd8l")]
+position = Vector2(1500, 0)

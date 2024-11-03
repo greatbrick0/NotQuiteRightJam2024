@@ -21,3 +21,7 @@ func ChangeTrack(newTrack: int) -> void:
 	changingTracks = prevTrackIndex != currentTrackIndex
 	if(changingTracks):
 		get_child(currentTrackIndex).play()
+
+func OnTrackFinished(trackIndex: int) -> void:
+	if(trackIndex == currentTrackIndex):
+		get_child(currentTrackIndex).play()

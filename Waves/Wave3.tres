@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://bcwahkx3wkv06"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawn_data.gd" id="1_gr2av"]
+[ext_resource type="Script" path="res://Scripts/wave_data.gd" id="2_ki2ep"]
+
+[sub_resource type="Resource" id="Resource_3pivi"]
+script = ExtResource("1_gr2av")
+enemyTypeIndex = 1
+enemySpawnTime = 2.0
+enemySpotIndex = 0
+
+[sub_resource type="Resource" id="Resource_3a0e5"]
+script = ExtResource("1_gr2av")
+enemyTypeIndex = 1
+enemySpawnTime = 3.0
+enemySpotIndex = 1
+
+[resource]
+script = ExtResource("2_ki2ep")
+hasEnemies = true
+enemies = Array[ExtResource("1_gr2av")]([SubResource("Resource_3pivi"), SubResource("Resource_3a0e5")])
+waveNode = NodePath("Level3")
+loopWave = false
+cameraBehaviour = "lock"
+cameraOffset = 0.0
+cameraBounds = Vector2(0, 100000)
+backgroundMusic = 0

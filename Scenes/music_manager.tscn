@@ -14,3 +14,7 @@ stream = ExtResource("2_kln8d")
 
 [node name="Track2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5k7tg")
+
+[connection signal="finished" from="Track0" to="." method="OnTrackFinished" binds= [0]]
+[connection signal="finished" from="Track1" to="." method="OnTrackFinished" binds= [1]]
+[connection signal="finished" from="Track2" to="." method="OnTrackFinished" binds= [2]]

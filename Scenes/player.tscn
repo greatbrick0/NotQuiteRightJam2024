@@ -102,6 +102,7 @@ position = Vector2(0, -30)
 [node name="Shotgun" type="AnimatedSprite2D" parent="Visuals/ShotgunCentre"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8rjqb")
+frame = 5
 offset = Vector2(9.5, 2)
 
 [node name="BulletPoint" type="Node2D" parent="Visuals/ShotgunCentre/Shotgun"]
