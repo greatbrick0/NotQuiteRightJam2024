@@ -12,6 +12,9 @@ var instanceRef: Node
 @export var scratchScene: PackedScene
 @export var deathScene: PackedScene
 
+func _ready():
+	moveSpeed *= randf_range(0.9, 1.0)
+
 func ChangeState(newState: String):
 	stateTime = 0.0
 	behaviourState = newState

@@ -7,6 +7,8 @@
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_h6rv6")
 
+[node name="Track0" type="AudioStreamPlayer" parent="."]
+
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kln8d")
 

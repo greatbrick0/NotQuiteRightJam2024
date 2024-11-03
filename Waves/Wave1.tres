@@ -34,4 +34,6 @@ enemies = Array[ExtResource("1_amqfc")]([SubResource("Resource_3pivi"), SubResou
 waveNode = NodePath("Level1")
 loopWave = false
 cameraBehaviour = "lock"
+cameraOffset = 0.0
+cameraBounds = Vector2(0, 100000)
 backgroundMusic = 0
