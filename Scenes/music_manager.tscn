@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmms4nj1mw5md"]
+
+[ext_resource type="Script" path="res://Scripts/music_manager.gd" id="1_h6rv6"]
+[ext_resource type="AudioStream" uid="uid://c41ed0fhkkqy8" path="res://Sounds/Music/WhenItsAboutToGoWrong.mp3" id="2_kln8d"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_h6rv6")
+
+[node name="Track1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kln8d")
+
+[node name="Track2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kln8d")

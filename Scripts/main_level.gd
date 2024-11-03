@@ -25,7 +25,7 @@ func NewWave() -> void:
 	if(waves[currentWave].hasEnemies):
 		QueueEnemies()
 	$ControlledCamera.ChangeBehaviour(waves[currentWave].cameraBehaviour, get_node(waves[currentWave].waveNode))
-	print(waves[currentWave].cameraBehaviour)
+	MusicManager.ChangeTrack(waves[currentWave].backgroundMusic)
 
 func _process(delta):
 	nextEnemyTime -= 1.0 * delta
