@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://bhi27t31ypewc"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawn_data.gd" id="1_amqfc"]
+[ext_resource type="Script" path="res://Scripts/wave_data.gd" id="2_viwc2"]
+
+[sub_resource type="Resource" id="Resource_3pivi"]
+script = ExtResource("1_amqfc")
+enemyTypeIndex = 0
+enemySpawnTime = 0.2
+enemySpotIndex = 0
+
+[sub_resource type="Resource" id="Resource_3a0e5"]
+script = ExtResource("1_amqfc")
+enemyTypeIndex = 0
+enemySpawnTime = 1.0
+enemySpotIndex = 1
+
+[sub_resource type="Resource" id="Resource_jcwxf"]
+script = ExtResource("1_amqfc")
+enemyTypeIndex = 0
+enemySpawnTime = 4.0
+enemySpotIndex = 2
+
+[sub_resource type="Resource" id="Resource_ueytx"]
+script = ExtResource("1_amqfc")
+enemyTypeIndex = 0
+enemySpawnTime = 1.0
+enemySpotIndex = 3
+
+[resource]
+script = ExtResource("2_viwc2")
+hasEnemies = true
+enemies = Array[ExtResource("1_amqfc")]([SubResource("Resource_3pivi"), SubResource("Resource_3a0e5"), SubResource("Resource_jcwxf"), SubResource("Resource_ueytx")])
+waveNode = NodePath("Level1")
+loopWave = false
+cameraBehaviour = "lock"
+backgroundMusic = 0

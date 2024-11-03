@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjqhcgdasveln"]
+[gd_scene load_steps=17 format=3 uid="uid://bjqhcgdasveln"]
 
 [ext_resource type="Script" path="res://Scripts/owl.gd" id="1_i6l8b"]
 [ext_resource type="Texture2D" uid="uid://cpldpcybjg5u" path="res://Sprites/OwlAnim_1.png" id="1_t4dhw"]
 [ext_resource type="PackedScene" uid="uid://c6b4vtattx1js" path="res://Scenes/Enemies/enemy_scratch.tscn" id="2_x8wfp"]
 [ext_resource type="PackedScene" uid="uid://bkos0aes5a4l1" path="res://Scenes/Enemies/dead_owl.tscn" id="3_kjfl3"]
+[ext_resource type="AudioStream" uid="uid://cw5ayxgp45y3u" path="res://Sounds/Effects/Hoot3.wav" id="5_ts85t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2dkj"]
 atlas = ExtResource("1_t4dhw")
@@ -91,6 +92,11 @@ sprite_frames = SubResource("SpriteFrames_macex")
 autoplay = "default"
 frame_progress = 0.022943
 offset = Vector2(1, -9)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="WarningSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_ts85t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

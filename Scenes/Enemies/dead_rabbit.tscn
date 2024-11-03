@@ -87,7 +87,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DeadOwl" type="Node2D"]
+[node name="DeadRabbit" type="Node2D"]
 
 [node name="Visuals" type="Node2D" parent="."]
 

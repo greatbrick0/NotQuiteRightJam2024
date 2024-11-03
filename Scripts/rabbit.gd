@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var health: int = 60
 @export var moveSpeed: float = 150
+var playerRef: Player
 var targetDirection: Vector2
 var behaviourState: String = "looking"
 var stateTime: float = 0.0
@@ -28,15 +29,15 @@ func _process(delta):
 
 func Attacking() -> void:
 	velocity = targetDirection * moveSpeed
-	if(global_position.distance_to(%Player.global_position) < 60):
+	if(global_position.distance_to(playerRef.global_position) < 60):
 		instanceRef = scratchScene.instantiate()
-		instanceRef.global_position = %Player.global_position
+		instanceRef.global_position = playerRef.global_position
 		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
 		get_parent().add_child(instanceRef)
-		targetDirection = -1 * global_position.direction_to(%Player.global_position)
-		if(%Player.global_position > global_position):
+		targetDirection = -1 * global_position.direction_to(playerRef.global_position)
+		if(playerRef.global_position > global_position):
 			$Visuals.scale.x = 1
-		elif(%Player.global_position < global_position):
+		elif(playerRef.global_position < global_position):
 			$Visuals.scale.x = -1
 		$Visuals/AnimatedSprite2D.frame = 0
 		$Visuals/AnimatedSprite2D.play()
@@ -51,12 +52,12 @@ func Retreating() -> void:
 
 func Looking() -> void:
 	velocity = Vector2.ZERO
-	if(%Player.global_position > global_position):
+	if(playerRef.global_position > global_position):
 		$Visuals.scale.x = -1
-	elif(%Player.global_position < global_position):
+	elif(playerRef.global_position < global_position):
 		$Visuals.scale.x = 1
-	if(stateTime > 0.7):
-		targetDirection = global_position.direction_to(%Player.global_position)
+	if(stateTime > 0.5):
+		targetDirection = global_position.direction_to(playerRef.global_position)
 		$Visuals/AnimatedSprite2D.play()
 		ChangeState("attacking")
 

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var baseMoveSpeed: float = 170
 @export var currentHealth: int = 3
@@ -61,6 +62,7 @@ func Shoot() -> void:
 func TakeDamage() -> void:
 	currentHealth -= 1
 	if(currentHealth <= 0):
+		lockedControls = true
 		$Visuals.visible = false
 	else:
 		$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]
