@@ -38,17 +38,19 @@ func _process(delta):
 	if(gunActionTime > 0):
 		gunActionTime -= 1.0 * delta
 	else:
-		if(Input.is_action_pressed("Shoot") and !lockedControls):
-			if(currentAmmo > 0):
-				Shoot()
-				$Visuals/ShotgunCentre/Shotgun.play()
-				$Sounds/GunBlastSound.play()
-				currentAmmo -= 1
-				gunActionTime = gunActionCooldown
-			else:
-				$Sounds/GunEmptySound.play()
-				currentAmmo = 2
-				gunActionTime = gunReloadCooldown
+		if(currentAmmo <= 0):
+			ReloadGun()
+		elif(Input.is_action_pressed("Shoot") and !lockedControls):
+			Shoot()
+			$Visuals/ShotgunCentre/Shotgun.play()
+			$Sounds/GunBlastSound.play()
+			currentAmmo -= 1
+			gunActionTime = gunActionCooldown
+
+func ReloadGun() -> void:
+	$Sounds/GunEmptySound.play()
+	currentAmmo = 2
+	gunActionTime = gunReloadCooldown
 
 func Shoot() -> void:
 	for ii in 12:

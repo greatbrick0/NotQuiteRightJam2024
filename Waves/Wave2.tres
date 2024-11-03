@@ -10,4 +10,6 @@ enemies = Array[ExtResource("1_vbwjl")]([])
 waveNode = NodePath("Level2")
 loopWave = false
 cameraBehaviour = "follow"
-backgroundMusic = 0
+cameraOffset = 100.0
+cameraBounds = Vector2(0, 100000)
+backgroundMusic = 1

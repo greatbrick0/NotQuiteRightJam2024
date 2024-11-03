@@ -12,8 +12,8 @@ var enemySpawnCounter: int = 0
 var enemyKillCount: int = 0
 
 func _ready():
-	QueueEnemies()
-	$ControlledCamera.ChangeBehaviour(waves[currentWave].cameraBehaviour, get_node(waves[currentWave].waveNode))
+	currentWave = -1
+	NewWave()
 
 func QueueEnemies() -> void:
 	spawningEnemies = true
@@ -24,7 +24,12 @@ func NewWave() -> void:
 	currentWave += 1
 	if(waves[currentWave].hasEnemies):
 		QueueEnemies()
-	$ControlledCamera.ChangeBehaviour(waves[currentWave].cameraBehaviour, get_node(waves[currentWave].waveNode))
+	$ControlledCamera.ChangeBehaviour(
+		waves[currentWave].cameraBehaviour, 
+		get_node(waves[currentWave].waveNode),
+		waves[currentWave].cameraOffset, 
+		waves[currentWave].cameraBounds
+	)
 	MusicManager.ChangeTrack(waves[currentWave].backgroundMusic)
 
 func _process(delta):
