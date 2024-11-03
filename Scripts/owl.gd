@@ -28,6 +28,7 @@ func PlayWawrningSound():
 
 func _process(delta):
 	stateTime += 1.0 * delta
+	if(Input.is_action_just_pressed("KillButton")): Die()
 	
 	if(behaviourState == "attacking"):
 		Attacking()
@@ -76,10 +77,13 @@ func DistanceFromCamera() -> float:
 func _on_hitbox_area_entered(area):
 	health -= 1
 	if(health <= 0 and !dead):
-		dead = true
-		instanceRef = deathScene.instantiate()
-		instanceRef.global_position = global_position
-		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
-		get_parent().add_child(instanceRef)
-		get_parent().EnemyDied()
-		queue_free()
+		Die()
+
+func Die() -> void:
+	dead = true
+	instanceRef = deathScene.instantiate()
+	instanceRef.global_position = global_position
+	instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
+	get_parent().add_child(instanceRef)
+	get_parent().EnemyDied()
+	queue_free()

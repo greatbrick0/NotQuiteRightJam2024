@@ -17,3 +17,9 @@ func NextWave() -> void:
 
 func _process(delta):
 	global_position += v * delta
+
+func _on_hitbox_2_area_entered(area):
+	RunAway()
+
+func _on_too_close_area_body_entered(body):
+	RunAway()
