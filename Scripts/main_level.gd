@@ -43,6 +43,9 @@ func _process(delta):
 	elif(currentWave == 2 and enemyKillCount == 2):
 		NewWave()
 		enemyKillCount = 0
+	elif(currentWave == 5 and enemyKillCount == 6):
+		NewWave()
+		enemyKillCount = 0
 
 func WaveSpawn() -> void:
 	instanceRef = enemyRefs[waves[currentWave].enemies[enemySpawnCounter].enemyTypeIndex].instantiate()
@@ -69,3 +72,8 @@ func _on_player_detect_2_body_entered(body):
 	if(currentWave == 4):
 		NewWave()
 		$Level6/PlayerDetect2.queue_free()
+
+func _on_player_detect_3_body_entered(body):
+	if(currentWave == 6):
+		NewWave()
+		$Level7/PlayerDetect3.queue_free()

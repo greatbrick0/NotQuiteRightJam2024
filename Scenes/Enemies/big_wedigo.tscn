@@ -272,7 +272,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lbdis")
 animation = &"idle"
 autoplay = "run"
-frame_progress = 0.221035
+frame_progress = 0.542712
 offset = Vector2(-1, -19)
 
 [node name="Sounds" type="Node2D" parent="."]
