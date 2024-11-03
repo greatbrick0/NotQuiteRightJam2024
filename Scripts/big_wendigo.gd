@@ -72,6 +72,7 @@ func DistanceFromCamera() -> float:
 
 func _on_hitbox_area_entered(area):
 	health -= 1
+	$Particles/DamageParticles.emitting = true
 	if(health % 50 == 0):
 		$Sounds/CrySound.play()
 	if(health <= 0 and !dead):

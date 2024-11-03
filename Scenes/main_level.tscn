@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bug1iittwsaxm" path="res://Sprites/Tuft1.png" id="18_proiu"]
 [ext_resource type="Texture2D" uid="uid://cpf2h6wsjgc72" path="res://Sprites/TuftBasic.png" id="20_mi5pe"]
 [ext_resource type="PackedScene" uid="uid://ckoeq5cen0s0r" path="res://Scenes/Enemies/running_wendigo.tscn" id="21_q3p48"]
-[ext_resource type="PackedScene" uid="uid://cey8uxnueu2cc" path="res://Scenes/Enemies/big_wedigo.tscn" id="24_6m2h5"]
+[ext_resource type="PackedScene" uid="uid://cey8uxnueu2cc" path="res://Scenes/Enemies/big_wendigo.tscn" id="24_6m2h5"]
 
 [sub_resource type="Animation" id="Animation_cck44"]
 resource_name = "Intro"
