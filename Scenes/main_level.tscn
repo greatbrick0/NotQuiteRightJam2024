@@ -1149,7 +1149,7 @@ y_sort_enabled = true
 position = Vector2(4800, 0)
 
 [node name="SpawnPos1" type="Node2D" parent="Level7"]
-position = Vector2(520, 0)
+position = Vector2(740, 0)
 
 [node name="TreeTops" parent="Level7" instance=ExtResource("5_rebjw")]
 position = Vector2(0, 333)
