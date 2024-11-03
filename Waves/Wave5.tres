@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=3 format=3 uid="uid://bj47lv5163qhr"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawn_data.gd" id="1_fg48j"]
+[ext_resource type="Script" path="res://Scripts/wave_data.gd" id="2_cbibj"]
+
+[resource]
+script = ExtResource("2_cbibj")
+hasEnemies = false
+enemies = Array[ExtResource("1_fg48j")]([])
+waveNode = NodePath("Level5")
+loopWave = false
+cameraBehaviour = "follow"
+cameraOffset = 0.0
+cameraBounds = Vector2(1400, 100000)
+backgroundMusic = 0

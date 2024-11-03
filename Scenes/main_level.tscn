@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=27 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -14,12 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="Resource" uid="uid://bcwahkx3wkv06" path="res://Waves/Wave3.tres" id="7_ga7ec"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
-[ext_resource type="Resource" path="res://Waves/Wave4.tres" id="8_igr2v"]
-[ext_resource type="PackedScene" path="res://Scenes/boundary.tscn" id="10_7lcve"]
+[ext_resource type="Resource" uid="uid://cc7bg4w5fc6iw" path="res://Waves/Wave4.tres" id="8_igr2v"]
+[ext_resource type="Resource" uid="uid://bj47lv5163qhr" path="res://Waves/Wave5.tres" id="9_jtoev"]
+[ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
 [ext_resource type="PackedScene" uid="uid://cpyb40eha4tk6" path="res://Scenes/Environment/river.tscn" id="15_ttd8l"]
 [ext_resource type="Texture2D" uid="uid://cvlmgovp6moir" path="res://Sprites/Tuft2.png" id="17_d2st3"]
 [ext_resource type="Texture2D" uid="uid://bug1iittwsaxm" path="res://Sprites/Tuft1.png" id="18_proiu"]
 [ext_resource type="Texture2D" uid="uid://cpf2h6wsjgc72" path="res://Sprites/TuftBasic.png" id="20_mi5pe"]
+[ext_resource type="PackedScene" uid="uid://ckoeq5cen0s0r" path="res://Scenes/Enemies/running_wendigo.tscn" id="21_q3p48"]
 
 [sub_resource type="Animation" id="Animation_cck44"]
 resource_name = "Intro"
@@ -138,7 +140,7 @@ size = Vector2(40, 666)
 y_sort_enabled = true
 script = ExtResource("1_jh8xa")
 enemyRefs = Array[PackedScene]([ExtResource("8_7vtm3"), ExtResource("6_kpur8")])
-waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2"), ExtResource("7_ga7ec"), ExtResource("8_igr2v")])
+waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2"), ExtResource("7_ga7ec"), ExtResource("8_igr2v"), ExtResource("9_jtoev")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -552,6 +554,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level3/PlayerDetect1"]
 shape = SubResource("RectangleShape2D_p6i1b")
+debug_color = Color(0, 0.7, 0.109375, 0.42)
 
 [node name="Rock5" parent="Level3" instance=ExtResource("5_a3exe")]
 position = Vector2(260, -121)
@@ -641,5 +644,180 @@ scale = Vector2(3, 3)
 texture = ExtResource("20_mi5pe")
 offset = Vector2(0, -4)
 flip_h = true
+
+[node name="RunningWendigo" parent="." instance=ExtResource("21_q3p48")]
+position = Vector2(2648, 8)
+
+[node name="Level5" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2785, 0)
+
+[node name="TreeTops" parent="Level5" instance=ExtResource("5_rebjw")]
+position = Vector2(184, 333)
+
+[node name="TreeTops2" parent="Level5" instance=ExtResource("5_rebjw")]
+position = Vector2(-210, 333)
+
+[node name="TreeTrunks" parent="Level5" instance=ExtResource("7_egsi8")]
+position = Vector2(182, -333)
+
+[node name="Rock5" parent="Level5" instance=ExtResource("5_a3exe")]
+position = Vector2(-309, -162)
+scale = Vector2(-1, 1)
+
+[node name="Rock4" parent="Level5" instance=ExtResource("3_c8cvl")]
+position = Vector2(-287, -32)
+
+[node name="Rock6" parent="Level5" instance=ExtResource("3_c8cvl")]
+position = Vector2(-311, 202)
+scale = Vector2(-1, 1)
+
+[node name="Rock" parent="Level5" instance=ExtResource("2_wxume")]
+position = Vector2(-314, 50)
+
+[node name="Grass1" type="Sprite2D" parent="Level5"]
+position = Vector2(-242.5, -106)
+scale = Vector2(3, 3)
+texture = ExtResource("18_proiu")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass2" type="Sprite2D" parent="Level5"]
+position = Vector2(-448.5, -203)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass3" type="Sprite2D" parent="Level5"]
+position = Vector2(-356.5, 6)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass4" type="Sprite2D" parent="Level5"]
+position = Vector2(-638.5, 168)
+scale = Vector2(3, 3)
+texture = ExtResource("18_proiu")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass5" type="Sprite2D" parent="Level5"]
+position = Vector2(-809.5, -283)
+scale = Vector2(3, 3)
+texture = ExtResource("18_proiu")
+offset = Vector2(0, -4)
+
+[node name="Grass6" type="Sprite2D" parent="Level5"]
+position = Vector2(-788.5, -49)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass7" type="Sprite2D" parent="Level5"]
+position = Vector2(-156.5, 272)
+scale = Vector2(3, 3)
+texture = ExtResource("18_proiu")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass18" type="Sprite2D" parent="Level5"]
+position = Vector2(-620.5, -181)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass19" type="Sprite2D" parent="Level5"]
+position = Vector2(-53.5, -68)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass20" type="Sprite2D" parent="Level5"]
+position = Vector2(-169.5, -260)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass21" type="Sprite2D" parent="Level5"]
+position = Vector2(-30.5, -199)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+
+[node name="Grass22" type="Sprite2D" parent="Level5"]
+position = Vector2(-741.5, 143)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+
+[node name="Grass23" type="Sprite2D" parent="Level5"]
+position = Vector2(-550.5, -45)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass24" type="Sprite2D" parent="Level5"]
+position = Vector2(18.5, 220)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass25" type="Sprite2D" parent="Level5"]
+position = Vector2(50.5, -272)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass26" type="Sprite2D" parent="Level5"]
+position = Vector2(47.5, -168)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass27" type="Sprite2D" parent="Level5"]
+position = Vector2(-781.5, -208)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+
+[node name="Grass28" type="Sprite2D" parent="Level5"]
+position = Vector2(-30.5, 28)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass8" type="Sprite2D" parent="Level5"]
+position = Vector2(-134.5, 153)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass9" type="Sprite2D" parent="Level5"]
+position = Vector2(-387.5, 256)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass10" type="Sprite2D" parent="Level5"]
+position = Vector2(-762.5, -368)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+centered = false
+offset = Vector2(0, -4)
+
+[node name="Grass13" type="Sprite2D" parent="Level5"]
+position = Vector2(-151.5, -370)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
 
 [connection signal="body_entered" from="Level3/PlayerDetect1" to="." method="_on_player_detect_1_body_entered"]
