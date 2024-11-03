@@ -82,6 +82,7 @@ height = 58.0
 
 [node name="Rabbit" type="CharacterBody2D"]
 script = ExtResource("1_55t4e")
+health = 12
 scratchScene = ExtResource("2_uj05r")
 deathScene = ExtResource("3_evwmr")
 

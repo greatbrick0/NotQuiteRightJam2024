@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=18 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bhi27t31ypewc" path="res://Waves/Wave1.tres" id="4_n2bkv"]
 [ext_resource type="PackedScene" uid="uid://m5aefrjlbv0g" path="res://Scenes/Environment/rock3.tscn" id="5_a3exe"]
 [ext_resource type="PackedScene" uid="uid://18pkhdbybjlq" path="res://Scenes/Environment/tree_tops.tscn" id="5_rebjw"]
+[ext_resource type="Resource" uid="uid://d3nnhul720tm1" path="res://Waves/Wave2.tres" id="6_0rrt2"]
 [ext_resource type="PackedScene" uid="uid://bjqhcgdasveln" path="res://Scenes/Enemies/owl.tscn" id="6_kpur8"]
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
@@ -128,7 +129,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_jh8xa")
 enemyRefs = Array[PackedScene]([ExtResource("8_7vtm3"), ExtResource("6_kpur8")])
-waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv")])
+waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

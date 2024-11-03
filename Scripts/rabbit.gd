@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var health: int = 60
 @export var moveSpeed: float = 150
+var dead: bool = false
 var playerRef: Player
 var targetDirection: Vector2
 var behaviourState: String = "looking"
@@ -70,9 +71,11 @@ func DistanceFromCamera() -> float:
 
 func _on_hitbox_area_entered(area):
 	health -= 1
-	if(health <= 0):
+	if(health <= 0 and !dead):
+		dead = true
 		instanceRef = deathScene.instantiate()
 		instanceRef.global_position = global_position
 		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
 		get_parent().add_child(instanceRef)
+		get_parent().EnemyDied()
 		queue_free()
