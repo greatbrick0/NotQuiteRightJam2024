@@ -67,6 +67,9 @@ func TakeDamage() -> void:
 	if(currentHealth <= 0):
 		lockedControls = true
 		$Visuals.visible = false
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://Scenes/Lose_Screen.tscn")
+		MusicManager.ChangeTrack(0)
 	else:
 		$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]
 	$Particles/DamageParticles.emitting = true

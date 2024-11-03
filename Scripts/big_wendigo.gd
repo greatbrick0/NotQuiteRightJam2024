@@ -35,7 +35,7 @@ func _process(delta):
 
 func Attacking() -> void:
 	velocity = targetDirection * moveSpeed
-	if(global_position.distance_to(playerRef.global_position) < 60):
+	if(global_position.distance_to(playerRef.global_position) < 90):
 		instanceRef = scratchScene.instantiate()
 		instanceRef.global_position = playerRef.global_position
 		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
