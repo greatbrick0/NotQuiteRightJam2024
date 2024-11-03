@@ -33,7 +33,6 @@ func Attacking() -> void:
 		instanceRef.global_position = %Player.global_position
 		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
 		get_parent().add_child(instanceRef)
-		%Player.TakeDamage()
 		targetDirection = -1 * global_position.direction_to(%Player.global_position)
 		ChangeState("retreating")
 	if(DistanceFromCamera() > 0.45 and stateTime > 0.1):

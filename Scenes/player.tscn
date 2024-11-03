@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cepbfx2aksu04"]
+[gd_scene load_steps=19 format=3 uid="uid://cepbfx2aksu04"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1bf3d"]
 [ext_resource type="PackedScene" uid="uid://cw8eghlnxpi0u" path="res://Scenes/player_bullet.tscn" id="2_h7hr5"]
@@ -67,6 +67,9 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 radius = 5.0
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o0uv0"]
+height = 56.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1bf3d")
 bulletScene = ExtResource("2_h7hr5")
@@ -86,7 +89,7 @@ position = Vector2(0, 1.5)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("4_3n4kr")
 animation = &"idle"
-frame_progress = 0.432282
+frame_progress = 0.86295
 offset = Vector2(0, -11)
 
 [node name="ShotgunCentre" type="Node2D" parent="Visuals"]
@@ -130,3 +133,13 @@ color_ramp = SubResource("Gradient_fuqeb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yuvrq")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -35)
+shape = SubResource("CapsuleShape2D_o0uv0")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

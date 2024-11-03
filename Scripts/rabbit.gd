@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var health: int = 48
+@export var health: int = 60
 @export var moveSpeed: float = 150
 var targetDirection: Vector2
 var behaviourState: String = "looking"
@@ -29,12 +29,10 @@ func _process(delta):
 func Attacking() -> void:
 	velocity = targetDirection * moveSpeed
 	if(global_position.distance_to(%Player.global_position) < 60):
-		print("intantiate")
 		instanceRef = scratchScene.instantiate()
 		instanceRef.global_position = %Player.global_position
 		instanceRef.get_node("Visuals").scale.x = $Visuals.scale.x
 		get_parent().add_child(instanceRef)
-		%Player.TakeDamage()
 		targetDirection = -1 * global_position.direction_to(%Player.global_position)
 		if(%Player.global_position > global_position):
 			$Visuals.scale.x = 1

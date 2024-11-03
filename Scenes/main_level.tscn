@@ -24,6 +24,7 @@ position = Vector2(325, 20)
 
 [node name="Rock2" parent="." instance=ExtResource("2_wxume")]
 position = Vector2(-151, 152)
+scale = Vector2(-1, 1)
 
 [node name="Rock3" parent="." instance=ExtResource("2_wxume")]
 position = Vector2(-221, -187)

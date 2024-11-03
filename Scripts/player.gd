@@ -56,6 +56,12 @@ func Shoot() -> void:
 		get_parent().add_child(instanceRef)
 
 func TakeDamage() -> void:
-	$Particles/DamageParticles.emitting = true
 	currentHealth -= 1
-	$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]
+	if(currentHealth <= 0):
+		$Visuals.visible = false
+	else:
+		$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]
+	$Particles/DamageParticles.emitting = true
+
+func _on_hitbox_area_entered(area):
+	TakeDamage()

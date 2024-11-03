@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6b4vtattx1js"]
+[gd_scene load_steps=9 format=3 uid="uid://c6b4vtattx1js"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_scratch.gd" id="1_cdlnj"]
 [ext_resource type="Texture2D" uid="uid://b7h5vsj7qgjib" path="res://Sprites/ClawSlash1.png" id="2_vpr6q"]
@@ -45,6 +45,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dm4k"]
+radius = 23.0868
+
 [node name="EnemyScratch" type="Node2D"]
 z_index = 1
 script = ExtResource("1_cdlnj")
@@ -66,5 +69,13 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_hxuax")
 autoplay = "default"
 frame_progress = 0.321982
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_4dm4k")
 
 [connection signal="animation_finished" from="Visuals/AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_animation_finished"]
