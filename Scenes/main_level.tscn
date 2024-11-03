@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=25 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -17,9 +17,8 @@
 [ext_resource type="Resource" uid="uid://cc7bg4w5fc6iw" path="res://Waves/Wave4.tres" id="8_igr2v"]
 [ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
 [ext_resource type="PackedScene" uid="uid://cpyb40eha4tk6" path="res://Scenes/Environment/river.tscn" id="15_ttd8l"]
-[ext_resource type="Texture2D" uid="uid://x3p777bk5s1t" path="res://Sprites/Grass1.png" id="17_nlfk0"]
+[ext_resource type="Texture2D" uid="uid://cvlmgovp6moir" path="res://Sprites/Tuft2.png" id="17_d2st3"]
 [ext_resource type="Texture2D" uid="uid://bug1iittwsaxm" path="res://Sprites/Tuft1.png" id="18_proiu"]
-[ext_resource type="Texture2D" uid="uid://bhj7c3g74wx14" path="res://Sprites/Grass2.png" id="18_tifre"]
 [ext_resource type="Texture2D" uid="uid://cpf2h6wsjgc72" path="res://Sprites/TuftBasic.png" id="20_mi5pe"]
 
 [sub_resource type="Animation" id="Animation_cck44"]
@@ -214,7 +213,7 @@ position = Vector2(0, -333)
 [node name="Grass1" type="Sprite2D" parent="Level1"]
 position = Vector2(-115, -79)
 scale = Vector2(3, 3)
-texture = ExtResource("17_nlfk0")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 flip_h = true
 
@@ -227,7 +226,7 @@ offset = Vector2(0, -4)
 [node name="Grass3" type="Sprite2D" parent="Level1"]
 position = Vector2(75, 198)
 scale = Vector2(3, 3)
-texture = ExtResource("17_nlfk0")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 
 [node name="Grass4" type="Sprite2D" parent="Level1"]
@@ -239,13 +238,13 @@ offset = Vector2(0, -4)
 [node name="Grass5" type="Sprite2D" parent="Level1"]
 position = Vector2(-344, -117)
 scale = Vector2(3, 3)
-texture = ExtResource("17_nlfk0")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 
 [node name="Grass6" type="Sprite2D" parent="Level1"]
 position = Vector2(343, 162)
 scale = Vector2(3, 3)
-texture = ExtResource("18_tifre")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 
 [node name="Grass7" type="Sprite2D" parent="Level1"]
@@ -336,6 +335,32 @@ texture = ExtResource("20_mi5pe")
 offset = Vector2(0, -4)
 flip_h = true
 
+[node name="Grass20" type="Sprite2D" parent="Level1"]
+position = Vector2(-42, 294)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass21" type="Sprite2D" parent="Level1"]
+position = Vector2(316, -262)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass22" type="Sprite2D" parent="Level1"]
+position = Vector2(211, -340)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+centered = false
+offset = Vector2(0, -4)
+
+[node name="Grass23" type="Sprite2D" parent="Level1"]
+position = Vector2(-340, -339)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+
 [node name="Level2" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(927, 0)
@@ -366,14 +391,15 @@ flip_h = true
 [node name="Grass2" type="Sprite2D" parent="Level2"]
 position = Vector2(-39, -169)
 scale = Vector2(3, 3)
-texture = ExtResource("18_tifre")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 
 [node name="Grass3" type="Sprite2D" parent="Level2"]
-position = Vector2(141, 161)
+position = Vector2(53, 40)
 scale = Vector2(3, 3)
-texture = ExtResource("17_nlfk0")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
+flip_h = true
 
 [node name="Grass4" type="Sprite2D" parent="Level2"]
 position = Vector2(-229, 202)
@@ -383,15 +409,15 @@ offset = Vector2(0, -4)
 flip_h = true
 
 [node name="Grass5" type="Sprite2D" parent="Level2"]
-position = Vector2(-352, -156)
+position = Vector2(-400, -249)
 scale = Vector2(3, 3)
-texture = ExtResource("17_nlfk0")
+texture = ExtResource("18_proiu")
 offset = Vector2(0, -4)
 
 [node name="Grass6" type="Sprite2D" parent="Level2"]
 position = Vector2(-379, -15)
 scale = Vector2(3, 3)
-texture = ExtResource("18_tifre")
+texture = ExtResource("17_d2st3")
 offset = Vector2(0, -4)
 
 [node name="Grass7" type="Sprite2D" parent="Level2"]
@@ -461,6 +487,44 @@ scale = Vector2(3, 3)
 texture = ExtResource("20_mi5pe")
 offset = Vector2(0, -4)
 flip_h = true
+
+[node name="Grass27" type="Sprite2D" parent="Level2"]
+position = Vector2(-372, -174)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+
+[node name="Grass28" type="Sprite2D" parent="Level2"]
+position = Vector2(379, 62)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass8" type="Sprite2D" parent="Level2"]
+position = Vector2(275, 187)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass9" type="Sprite2D" parent="Level2"]
+position = Vector2(22, 290)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+
+[node name="Grass10" type="Sprite2D" parent="Level2"]
+position = Vector2(-353, -334)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+centered = false
+offset = Vector2(0, -4)
+
+[node name="Grass13" type="Sprite2D" parent="Level2"]
+position = Vector2(258, -336)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
 
 [node name="Level3" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -545,7 +609,35 @@ texture = ExtResource("20_mi5pe")
 offset = Vector2(0, -4)
 
 [node name="Grass23" type="Sprite2D" parent="Level3"]
-position = Vector2(450, 35)
+position = Vector2(449, 35)
+scale = Vector2(3, 3)
+texture = ExtResource("20_mi5pe")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass3" type="Sprite2D" parent="Level3"]
+position = Vector2(258, 30)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass4" type="Sprite2D" parent="Level3"]
+position = Vector2(306, -236)
+scale = Vector2(3, 3)
+texture = ExtResource("17_d2st3")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass5" type="Sprite2D" parent="Level3"]
+position = Vector2(224, -339)
+scale = Vector2(3, 3)
+texture = ExtResource("18_proiu")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass24" type="Sprite2D" parent="Level3"]
+position = Vector2(381, -336)
 scale = Vector2(3, 3)
 texture = ExtResource("20_mi5pe")
 offset = Vector2(0, -4)
