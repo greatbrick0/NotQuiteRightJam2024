@@ -12,4 +12,4 @@ loopWave = false
 cameraBehaviour = "follow"
 cameraOffset = 0.0
 cameraBounds = Vector2(1400, 100000)
-backgroundMusic = 0
+backgroundMusic = 2
