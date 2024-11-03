@@ -1,13 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpyb40eha4tk6"]
+[gd_scene load_steps=9 format=3 uid="uid://cpyb40eha4tk6"]
 
-[ext_resource type="Texture2D" uid="uid://bujbdpdfxjwvp" path="res://Sprites/River1.png" id="1_kinq1"]
+[ext_resource type="Texture2D" uid="uid://d0aegjx3dgro7" path="res://Sprites/River1-sheet-sheet.png" id="1_m6ioy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14nrn"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(0, 0, 80, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4665"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(80, 0, 80, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5pcj"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(160, 0, 80, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex86d"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(240, 0, 80, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik4bq"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(320, 0, 80, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epql3"]
+atlas = ExtResource("1_m6ioy")
+region = Rect2(400, 0, 80, 222)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd6tm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14nrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4665")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5pcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex86d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik4bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epql3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="River" type="Node2D"]
+z_index = -1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 333)
 scale = Vector2(3, 3)
-texture = ExtResource("1_kinq1")
+sprite_frames = SubResource("SpriteFrames_wd6tm")
+autoplay = "default"
+frame_progress = 0.594298
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = -3
@@ -15,10 +68,10 @@ z_as_relative = false
 position = Vector2(0, 333)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-81, -51, 81, -27, 89, -144, 63, -352, -99, -356, -73, -203)
+polygon = PackedVector2Array(-101, 16, 96, 18, 108, -104, 76, -347, -102, -348, -86, -107)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(0, 333)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(-87, 42, 52, 63, 78, 88, 68, 235, 76, 345, -91, 346, -96, 189)
+polygon = PackedVector2Array(-97, 92, 5, 86, 83, 91, 67, 173, 77, 234, 73, 344, -98, 347, -102, 191)
