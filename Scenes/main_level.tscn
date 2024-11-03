@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqhcgdasveln" path="res://Scenes/Enemies/owl.tscn" id="6_kpur8"]
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
-[ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundry.tscn" id="10_7lcve"]
+[ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
 
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
@@ -65,5 +65,8 @@ position = Vector2(0, 333)
 [node name="TreeTrunks" parent="Level1" instance=ExtResource("7_egsi8")]
 position = Vector2(0, -333)
 
-[node name="Boundry" parent="Level1" instance=ExtResource("10_7lcve")]
+[node name="Boundary1" parent="Level1" instance=ExtResource("10_7lcve")]
 position = Vector2(-456, 0)
+
+[node name="Boundary2" parent="Level1" instance=ExtResource("10_7lcve")]
+position = Vector2(456, 0)

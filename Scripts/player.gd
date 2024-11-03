@@ -44,6 +44,7 @@ func _process(delta):
 				currentAmmo -= 1
 				gunActionTime = gunActionCooldown
 			else:
+				$Sounds/GunEmptySound.play()
 				currentAmmo = 2
 				gunActionTime = gunReloadCooldown
 
@@ -64,6 +65,7 @@ func TakeDamage() -> void:
 	else:
 		$Visuals/Hunter.sprite_frames = healthStages[currentHealth-1]
 	$Particles/DamageParticles.emitting = true
+	$Sounds/CloakTearSound.play()
 
 func _on_hitbox_area_entered(area):
 	TakeDamage()

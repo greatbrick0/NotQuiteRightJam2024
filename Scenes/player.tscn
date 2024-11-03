@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cepbfx2aksu04"]
+[gd_scene load_steps=21 format=3 uid="uid://cepbfx2aksu04"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1bf3d"]
 [ext_resource type="PackedScene" uid="uid://cw8eghlnxpi0u" path="res://Scenes/player_bullet.tscn" id="2_h7hr5"]
@@ -8,6 +8,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cipfcqjuyut2u" path="res://Sprites/Player/PlayerHurt1.tres" id="4_qftt8"]
 [ext_resource type="AudioStream" uid="uid://oqoeb0ieb2bp" path="res://Sounds/Effects/Blast2.wav" id="5_l8sw1"]
 [ext_resource type="Texture2D" uid="uid://c1geo5cr5vn17" path="res://Sprites/Player/Rifle_1.png" id="5_sm2i7"]
+[ext_resource type="AudioStream" uid="uid://5d8mp77it5qo" path="res://Sounds/Effects/Empty3.wav" id="9_31kd3"]
+[ext_resource type="AudioStream" uid="uid://dcy08fjog8rch" path="res://Sounds/Effects/ClothRip1.wav" id="10_estov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jl8x"]
 atlas = ExtResource("5_sm2i7")
@@ -90,7 +92,7 @@ position = Vector2(0, 1.5)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("4_3n4kr")
 animation = &"idle"
-frame_progress = 0.512033
+frame_progress = 0.712676
 offset = Vector2(0, -11)
 
 [node name="ShotgunCentre" type="Node2D" parent="Visuals"]
@@ -109,6 +111,15 @@ position = Vector2(12, 1)
 
 [node name="GunBlastSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_l8sw1")
+
+[node name="GunEmptySound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_31kd3")
+volume_db = -8.0
+
+[node name="CloakTearSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_estov")
+volume_db = 5.0
+pitch_scale = 1.15
 
 [node name="Particles" type="Node2D" parent="."]
 show_behind_parent = true
