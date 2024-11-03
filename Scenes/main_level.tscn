@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=11 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -9,40 +9,61 @@
 [ext_resource type="PackedScene" uid="uid://bjqhcgdasveln" path="res://Scenes/Enemies/owl.tscn" id="6_kpur8"]
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
+[ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundry.tscn" id="10_7lcve"]
 
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jh8xa")
+enemyRefs = Array[PackedScene]([ExtResource("6_kpur8"), ExtResource("8_7vtm3")])
 
 [node name="ControlledCamera" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_2ybcu")]
 unique_name_in_owner = true
 
-[node name="Rock" parent="." instance=ExtResource("2_wxume")]
-position = Vector2(325, 20)
-
-[node name="Rock2" parent="." instance=ExtResource("2_wxume")]
-position = Vector2(-151, 152)
-scale = Vector2(-1, 1)
-
-[node name="Rock3" parent="." instance=ExtResource("2_wxume")]
-position = Vector2(-221, -187)
-
-[node name="Rock4" parent="." instance=ExtResource("3_c8cvl")]
-position = Vector2(137, 140)
-
-[node name="Rock5" parent="." instance=ExtResource("5_a3exe")]
-position = Vector2(150, -73)
-
-[node name="TreeTops" parent="." instance=ExtResource("5_rebjw")]
-position = Vector2(0, 333)
-
 [node name="Owl" parent="." instance=ExtResource("6_kpur8")]
 position = Vector2(258, -92)
 
-[node name="TreeTrunks" parent="." instance=ExtResource("7_egsi8")]
-position = Vector2(0, -333)
-
 [node name="Rabbit" parent="." instance=ExtResource("8_7vtm3")]
 position = Vector2(-235, -31)
+
+[node name="Level1" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="SpawnPos1" type="Node2D" parent="Level1"]
+position = Vector2(515, -125)
+
+[node name="SpawnPos2" type="Node2D" parent="Level1"]
+position = Vector2(515, 143)
+
+[node name="SpawnPos3" type="Node2D" parent="Level1"]
+position = Vector2(-514, -121)
+
+[node name="SpawnPos4" type="Node2D" parent="Level1"]
+position = Vector2(-514, 147)
+
+[node name="Rock" parent="Level1" instance=ExtResource("2_wxume")]
+position = Vector2(325, 20)
+
+[node name="Rock2" parent="Level1" instance=ExtResource("2_wxume")]
+position = Vector2(-151, 152)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Rock3" parent="Level1" instance=ExtResource("2_wxume")]
+position = Vector2(-221, -187)
+
+[node name="Rock4" parent="Level1" instance=ExtResource("3_c8cvl")]
+position = Vector2(137, 140)
+
+[node name="Rock5" parent="Level1" instance=ExtResource("5_a3exe")]
+position = Vector2(150, -73)
+
+[node name="TreeTops" parent="Level1" instance=ExtResource("5_rebjw")]
+position = Vector2(0, 333)
+
+[node name="TreeTrunks" parent="Level1" instance=ExtResource("7_egsi8")]
+position = Vector2(0, -333)
+
+[node name="Boundry" parent="Level1" instance=ExtResource("10_7lcve")]
+position = Vector2(-456, 0)

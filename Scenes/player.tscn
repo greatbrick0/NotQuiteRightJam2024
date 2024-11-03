@@ -71,6 +71,7 @@ height = 48.0
 height = 56.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_1bf3d")
 bulletScene = ExtResource("2_h7hr5")
 healthStages = Array[SpriteFrames]([ExtResource("3_3bhe8"), ExtResource("4_qftt8"), ExtResource("4_3n4kr")])
@@ -89,7 +90,7 @@ position = Vector2(0, 1.5)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("4_3n4kr")
 animation = &"idle"
-frame_progress = 0.86295
+frame_progress = 0.512033
 offset = Vector2(0, -11)
 
 [node name="ShotgunCentre" type="Node2D" parent="Visuals"]

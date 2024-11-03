@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var gunActionCooldown: float = 0.4
 @export var gunReloadCooldown: float = 1.4
 var gunActionTime: float = 0
+var lockedControls: bool = false
 
 var instanceRef: Node
 @export var bulletScene: PackedScene
@@ -14,8 +15,9 @@ var instanceRef: Node
 var inputMoveDir: Vector2
 
 func _process(delta):
-	inputMoveDir.y = Input.get_axis("MoveUp", "MoveDown")
-	inputMoveDir.x = Input.get_axis("MoveLeft", "MoveRight")
+	if(!lockedControls):
+		inputMoveDir.y = Input.get_axis("MoveUp", "MoveDown")
+		inputMoveDir.x = Input.get_axis("MoveLeft", "MoveRight")
 	
 	var mousPos: Vector2 = get_global_mouse_position()
 	if(mousPos.x > global_position.x):
@@ -34,7 +36,7 @@ func _process(delta):
 	if(gunActionTime > 0):
 		gunActionTime -= 1.0 * delta
 	else:
-		if(Input.is_action_pressed("Shoot")):
+		if(Input.is_action_pressed("Shoot") and !lockedControls):
 			if(currentAmmo > 0):
 				Shoot()
 				$Visuals/ShotgunCentre/Shotgun.play()
