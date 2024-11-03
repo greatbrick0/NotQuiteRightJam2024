@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="Resource" uid="uid://bcwahkx3wkv06" path="res://Waves/Wave3.tres" id="7_ga7ec"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
-[ext_resource type="Resource" path="res://Waves/Wave4.tres" id="8_igr2v"]
-[ext_resource type="PackedScene" path="res://Scenes/boundary.tscn" id="10_7lcve"]
+[ext_resource type="Resource" uid="uid://cc7bg4w5fc6iw" path="res://Waves/Wave4.tres" id="8_igr2v"]
+[ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
 [ext_resource type="PackedScene" uid="uid://cpyb40eha4tk6" path="res://Scenes/Environment/river.tscn" id="15_ttd8l"]
 [ext_resource type="Texture2D" uid="uid://x3p777bk5s1t" path="res://Sprites/Grass1.png" id="17_nlfk0"]
 [ext_resource type="Texture2D" uid="uid://bug1iittwsaxm" path="res://Sprites/Tuft1.png" id="18_proiu"]
@@ -488,6 +488,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level3/PlayerDetect1"]
 shape = SubResource("RectangleShape2D_p6i1b")
+debug_color = Color(0, 0.7, 0.109375, 0.42)
 
 [node name="Rock5" parent="Level3" instance=ExtResource("5_a3exe")]
 position = Vector2(260, -121)
