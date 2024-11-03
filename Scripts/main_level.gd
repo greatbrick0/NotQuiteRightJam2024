@@ -64,3 +64,8 @@ func _on_player_detect_1_body_entered(body):
 	if(currentWave == 1):
 		NewWave()
 		$Level3/PlayerDetect1.queue_free()
+
+func _on_player_detect_2_body_entered(body):
+	if(currentWave == 4):
+		NewWave()
+		$Level6/PlayerDetect2.queue_free()

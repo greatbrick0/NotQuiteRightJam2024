@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://dpwkg0o8cqev4"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawn_data.gd" id="1_a3p1x"]
+[ext_resource type="Script" path="res://Scripts/wave_data.gd" id="2_jevpb"]
+
+[sub_resource type="Resource" id="Resource_a72v5"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 0
+enemySpawnTime = 1.0
+enemySpotIndex = 1
+
+[sub_resource type="Resource" id="Resource_uj60r"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 0
+enemySpawnTime = 0.5
+enemySpotIndex = 2
+
+[sub_resource type="Resource" id="Resource_mvvjx"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 1
+enemySpawnTime = 2.0
+enemySpotIndex = 1
+
+[sub_resource type="Resource" id="Resource_i61c1"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 0
+enemySpawnTime = 5.0
+enemySpotIndex = 2
+
+[sub_resource type="Resource" id="Resource_350g5"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 0
+enemySpawnTime = 1.0
+enemySpotIndex = 0
+
+[sub_resource type="Resource" id="Resource_evg7r"]
+script = ExtResource("1_a3p1x")
+enemyTypeIndex = 1
+enemySpawnTime = 3.0
+enemySpotIndex = 3
+
+[resource]
+script = ExtResource("2_jevpb")
+hasEnemies = true
+enemies = Array[ExtResource("1_a3p1x")]([SubResource("Resource_a72v5"), SubResource("Resource_uj60r"), SubResource("Resource_mvvjx"), SubResource("Resource_i61c1"), SubResource("Resource_350g5"), SubResource("Resource_evg7r")])
+waveNode = NodePath("Level6")
+loopWave = false
+cameraBehaviour = "lock"
+cameraOffset = 0.0
+cameraBounds = Vector2(0, 100000)
+backgroundMusic = 1
