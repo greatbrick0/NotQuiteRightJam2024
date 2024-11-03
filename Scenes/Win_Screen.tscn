@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwc7r2vcrsvhb"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_o2sdd"]
+[ext_resource type="Texture2D" uid="uid://deynxqpy862ru" path="res://Sprites/MenuScreenTry1AddedEyes.png" id="2_sldf1"]
+[ext_resource type="Theme" uid="uid://b32hstdndaid8" path="res://MenuTheme.tres" id="3_t7wgi"]
+
+[sub_resource type="Animation" id="Animation_pv7i0"]
+resource_name = "EyesBlink"
+length = 20.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vxqap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0msfs"]
+_data = {
+"EyesBlink": SubResource("Animation_pv7i0"),
+"RESET": SubResource("Animation_vxqap")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_o2sdd")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(912, 666)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 912.0
+offset_bottom = 666.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackgroundImage" type="Sprite2D" parent="Control"]
+position = Vector2(456, 333)
+scale = Vector2(6, 6)
+texture = ExtResource("2_sldf1")
+
+[node name="ColorRect" type="ColorRect" parent="Control/BackgroundImage"]
+offset_left = -48.8333
+offset_top = 3.16667
+offset_right = -38.8333
+offset_bottom = 13.1667
+color = Color(0.203922, 0.223529, 0.305882, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/BackgroundImage"]
+libraries = {
+"": SubResource("AnimationLibrary_0msfs")
+}
+autoplay = "EyesBlink"
+
+[node name="StartButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 125.0
+offset_right = 90.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_t7wgi")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
