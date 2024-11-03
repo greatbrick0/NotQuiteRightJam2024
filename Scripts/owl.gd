@@ -13,12 +13,16 @@ var instanceRef: Node
 @export var deathScene: PackedScene
 
 func _ready():
-	$Sounds/WarningSound.play()
+	PlayWawrningSound()
 
 func ChangeState(newState: String):
 	stateTime = 0.0
 	behaviourState = newState
 	if(behaviourState == "looking"):
+		PlayWawrningSound()
+
+func PlayWawrningSound():
+	if(DistanceFromCamera() < 0.5):
 		$Sounds/WarningSound.pitch_scale = randf_range(0.9, 1.1)
 		$Sounds/WarningSound.play()
 

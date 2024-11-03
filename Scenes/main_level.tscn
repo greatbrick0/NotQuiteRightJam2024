@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yy44osj106on"]
+[gd_scene load_steps=24 format=3 uid="uid://yy44osj106on"]
 
 [ext_resource type="PackedScene" uid="uid://cepbfx2aksu04" path="res://Scenes/player.tscn" id="1_2ybcu"]
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_jh8xa"]
@@ -14,8 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://b70i2c62qi7g1" path="res://Scenes/Environment/tree_trunks.tscn" id="7_egsi8"]
 [ext_resource type="Resource" uid="uid://bcwahkx3wkv06" path="res://Waves/Wave3.tres" id="7_ga7ec"]
 [ext_resource type="PackedScene" uid="uid://sprmn3fse7g2" path="res://Scenes/Enemies/rabbit.tscn" id="8_7vtm3"]
+[ext_resource type="Resource" uid="uid://cc7bg4w5fc6iw" path="res://Waves/Wave4.tres" id="8_igr2v"]
 [ext_resource type="PackedScene" uid="uid://bskm2dgasfrc6" path="res://Scenes/boundary.tscn" id="10_7lcve"]
 [ext_resource type="PackedScene" uid="uid://cpyb40eha4tk6" path="res://Scenes/Environment/river.tscn" id="15_ttd8l"]
+[ext_resource type="Texture2D" uid="uid://x3p777bk5s1t" path="res://Sprites/Grass1.png" id="17_nlfk0"]
+[ext_resource type="Texture2D" uid="uid://bhj7c3g74wx14" path="res://Sprites/Grass2.png" id="18_tifre"]
 
 [sub_resource type="Animation" id="Animation_cck44"]
 resource_name = "Intro"
@@ -127,11 +130,14 @@ _data = {
 "RESET": SubResource("Animation_m8c6y")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6i1b"]
+size = Vector2(40, 666)
+
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jh8xa")
 enemyRefs = Array[PackedScene]([ExtResource("8_7vtm3"), ExtResource("6_kpur8")])
-waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2"), ExtResource("7_ga7ec")])
+waves = Array[ExtResource("4_mpb5r")]([ExtResource("4_n2bkv"), ExtResource("6_0rrt2"), ExtResource("7_ga7ec"), ExtResource("8_igr2v")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -202,6 +208,43 @@ position = Vector2(0, 333)
 [node name="TreeTrunks" parent="Level1" instance=ExtResource("7_egsi8")]
 position = Vector2(0, -333)
 
+[node name="Grass1" type="Sprite2D" parent="Level1"]
+position = Vector2(-115, -79)
+scale = Vector2(3, 3)
+texture = ExtResource("17_nlfk0")
+offset = Vector2(0, -4)
+flip_h = true
+
+[node name="Grass2" type="Sprite2D" parent="Level1"]
+position = Vector2(249, -187)
+scale = Vector2(3, 3)
+texture = ExtResource("18_tifre")
+offset = Vector2(0, -4)
+
+[node name="Grass3" type="Sprite2D" parent="Level1"]
+position = Vector2(75, 198)
+scale = Vector2(3, 3)
+texture = ExtResource("17_nlfk0")
+offset = Vector2(0, -4)
+
+[node name="Grass4" type="Sprite2D" parent="Level1"]
+position = Vector2(-323, 92)
+scale = Vector2(3, 3)
+texture = ExtResource("18_tifre")
+offset = Vector2(0, -4)
+
+[node name="Grass5" type="Sprite2D" parent="Level1"]
+position = Vector2(-344, -117)
+scale = Vector2(3, 3)
+texture = ExtResource("17_nlfk0")
+offset = Vector2(0, -4)
+
+[node name="Grass6" type="Sprite2D" parent="Level1"]
+position = Vector2(343, 162)
+scale = Vector2(3, 3)
+texture = ExtResource("18_tifre")
+offset = Vector2(0, -4)
+
 [node name="Level2" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(927, 0)
@@ -212,9 +255,28 @@ position = Vector2(0, 333)
 [node name="TreeTrunks" parent="Level2" instance=ExtResource("7_egsi8")]
 position = Vector2(0, -333)
 
+[node name="Rock5" parent="Level2" instance=ExtResource("5_a3exe")]
+position = Vector2(-177, -141)
+scale = Vector2(-1, 1)
+
+[node name="Rock4" parent="Level2" instance=ExtResource("3_c8cvl")]
+position = Vector2(327, 10)
+
+[node name="Rock6" parent="Level2" instance=ExtResource("3_c8cvl")]
+position = Vector2(-63, 174)
+
 [node name="Level3" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(1500, 0)
+
+[node name="SpawnPos1" type="Node2D" parent="Level3"]
+position = Vector2(480, -100)
+
+[node name="SpawnPos2" type="Node2D" parent="Level3"]
+position = Vector2(-480, 100)
+
+[node name="River" parent="Level3" instance=ExtResource("15_ttd8l")]
+position = Vector2(0, -333)
 
 [node name="TreeTops" parent="Level3" instance=ExtResource("5_rebjw")]
 position = Vector2(350, 333)
@@ -222,11 +284,19 @@ position = Vector2(350, 333)
 [node name="TreeTrunks" parent="Level3" instance=ExtResource("7_egsi8")]
 position = Vector2(550, -333)
 
-[node name="SpawnPos1" type="Node2D" parent="Level3"]
-position = Vector2(520, -200)
+[node name="PlayerDetect1" type="Area2D" parent="Level3"]
+position = Vector2(-100, 0)
+collision_layer = 0
+collision_mask = 32
 
-[node name="SpawnPos2" type="Node2D" parent="Level3"]
-position = Vector2(-520, 200)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level3/PlayerDetect1"]
+shape = SubResource("RectangleShape2D_p6i1b")
 
-[node name="River" parent="." instance=ExtResource("15_ttd8l")]
-position = Vector2(1500, 0)
+[node name="Rock5" parent="Level3" instance=ExtResource("5_a3exe")]
+position = Vector2(260, -121)
+
+[node name="Rock6" parent="Level3" instance=ExtResource("5_a3exe")]
+position = Vector2(217, 137)
+scale = Vector2(-1, 1)
+
+[connection signal="body_entered" from="Level3/PlayerDetect1" to="." method="_on_player_detect_1_body_entered"]

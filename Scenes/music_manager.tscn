@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmms4nj1mw5md"]
+[gd_scene load_steps=6 format=3 uid="uid://dmms4nj1mw5md"]
 
 [ext_resource type="Script" path="res://Scripts/music_manager.gd" id="1_h6rv6"]
+[ext_resource type="AudioStream" uid="uid://ciuitxp1tfagy" path="res://Sounds/Music/CricketsMotifforRealThisTime.mp3" id="2_74c4k"]
 [ext_resource type="AudioStream" uid="uid://c41ed0fhkkqy8" path="res://Sounds/Music/WhenItsAboutToGoWrong.mp3" id="2_kln8d"]
 [ext_resource type="AudioStream" uid="uid://cvdgdqce76mq4" path="res://Sounds/Music/WhenItIsActivelyGoingWrong.mp3" id="3_5k7tg"]
+[ext_resource type="AudioStream" uid="uid://bupu44k0tuwad" path="res://Sounds/Effects/blipSelect.wav" id="5_4ts8u"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_h6rv6")
 
 [node name="Track0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_74c4k")
+autoplay = true
 
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kln8d")
 
 [node name="Track2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5k7tg")
+
+[node name="GeneralEffects" type="Node" parent="."]
+
+[node name="MenuBlip" type="AudioStreamPlayer" parent="GeneralEffects"]
+stream = ExtResource("5_4ts8u")
+volume_db = -10.0
 
 [connection signal="finished" from="Track0" to="." method="OnTrackFinished" binds= [0]]
 [connection signal="finished" from="Track1" to="." method="OnTrackFinished" binds= [1]]

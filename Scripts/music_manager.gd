@@ -1,6 +1,6 @@
 extends Node
 
-var prevTrackIndex: int = 0
+var prevTrackIndex: int = -1
 var currentTrackIndex: int = 0
 var timeSinceTrackChange: float = 0.0
 var changingTracks: bool = false
@@ -25,3 +25,6 @@ func ChangeTrack(newTrack: int) -> void:
 func OnTrackFinished(trackIndex: int) -> void:
 	if(trackIndex == currentTrackIndex):
 		get_child(currentTrackIndex).play()
+
+func PlayGeneral(index: int):
+	$GeneralEffects.get_child(index).play()

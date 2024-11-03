@@ -5,5 +5,20 @@
 [node name="River" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 333)
 scale = Vector2(3, 3)
 texture = ExtResource("1_kinq1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-81, -51, 81, -27, 89, -144, 63, -352, -99, -356, -73, -203)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, 333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-87, 42, 52, 63, 78, 88, 68, 235, 76, 345, -91, 346, -96, 189)
